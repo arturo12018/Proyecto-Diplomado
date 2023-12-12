@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="es">
+<head th:replace="plantillas/plantilla :: head"></head>
+</head>
+<body>
+<header th:replace="plantillas/plantilla :: header"></header>
+<main class="container text-center">
+    <h1 th:text="${operacion}"></h1>
+    <div class="card">
+        <h4 class="card-header"><strong>Formulario de registro</strong></h4>
+        <div class="card-body">
+            <form th:action="@{/libros/modificar-libros}" th:object="${libro}"
+                  method="post">
+                <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
+                    Verifique los siguientes errores
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="isbn">ISBN</label>
+                            <input type="number" class="form-control"
+                                   id="isbn" name="isbn"
+                                   placeholder="ISBN"
+                                   th:field="*{isbn}" required min="1000000000000" max="9999999999999" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="titulo">Titulo</label>
+                            <input type="text" class="form-control"
+                                   id="titulo" name="titulo"
+                                   placeholder="Titulo"
+                                   th:field="*{titulo}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="descripcion">Descipcion</label>
+                            <br/>
+                            <textarea th:field="*{descripcion}" id="descripcion" name="descripcion" rows="4" cols="50" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="edicion">Edicion</label>
+                            <input type="number" class="form-control"
+                                   id="edicion" name="edicion"
+                                   placeholder="Edicion"
+                                   th:field="*{edicion}" required min="1">
+                        </div>
+                    </div>
+
+
+                   <div class="col-md-6">
+                       <div class="form-group">
+                           <label for="anioPublicacion">Fecha Publicacion</label>
+                           <div class="input-group date" data-provide="datepicker">
+                               <input type="text" class="form-control"
+                                      id="anioPublicacion" name="anioPublicacion"
+                                      placeholder="Fecha Publicacion" required="required"
+                                      th:field="*{anioPublicacion}" >
+                               <div class="input-group-addon">
+                                   <span class="glyphicon glyphicon-th"></span>
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="idioma">Idioma</label>
+                            <select class="form-control" th:field="*{idioma}" id="idioma" name="idioma" required="requiered">
+                                <option th:each="sel : ${idiomasSelect}" th:value="${sel.id}" th:text="${sel.nombre}"/>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="autores">Autores</label>
+                            <select class="form-control" th:field="*{autores}" id="autores" name="autores" required="required" multiple>
+                                <option th:each="sel : ${autoresSelect}" th:value="${sel.id}" th:text="${sel.nombre + ' ' + sel.apellidoPaterno}"/>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="editorial">Editorial</label>
+                            <select class="form-control" th:field="*{editorial}" id="editorial" name="editorial" required="editorial">
+                                <option th:each="sel : ${editorialSelect}" th:value="${sel.id}" th:text="${sel.nombre}"/>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="valoracion">Valoracion</label>
+                            <input type="range" class="form-control"
+                                   id="valoracion" name="valoracion"
+
+                                   th:field="*{valoracion}" required min="0" max="5">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="precio">Precio</label>
+                            <input type="number" class="form-control"
+                                   id="precio" name="precio"
+                                   placeholder="Precio"
+                                   th:field="*{precio}" required min="0" step="0.01">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="numeroPaginas">Número de paginas</label>
+                            <input type="number" class="form-control"
+                                   id="numeroPaginas" name="numeroPaginas"
+                                   placeholder="Número de Paginas"
+                                   th:field="*{numeroPaginas}" required min="0">
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-1">
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+
+                </div>
+                <input type="hidden" name="id_cte" th:field="*{isbn}"/>
+            </form>
+        </div>
+    </div>
+</main>
+<footer th:replace="plantillas/plantilla :: footer"></footer>
+
+
+</body>
+</html>

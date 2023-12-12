@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="es">
+<head>
+    <meta http-equiv="refresh" content="2;URL=http://localhost:8080/principal">
+    <title>Title</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/bootstrap-datepicker3.standalone.min.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/jquery-ui.min.css}" rel="stylesheet">
+    <link th:href="@{/tema/miestilo.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Iniciando</h1>
+        <img th:src="@{/imagen/logo.png}" width="30%" height="30%"><br/>
+        <h2 th:text="${nombreAplicacion}"></h2>
+    </div>
+</div>
+
+</body>
+</html>
