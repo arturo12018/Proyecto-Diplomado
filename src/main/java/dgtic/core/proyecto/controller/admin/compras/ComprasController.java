@@ -1,4 +1,4 @@
-package dgtic.core.proyecto.controller.compras;
+package dgtic.core.proyecto.controller.admin.compras;
 
 import dgtic.core.proyecto.entity.Compra;
 import dgtic.core.proyecto.entity.Editorial;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("compras")
+@RequestMapping("admin/compras")
 public class ComprasController {
 
     @Autowired

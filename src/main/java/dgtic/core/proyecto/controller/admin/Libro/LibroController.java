@@ -1,4 +1,4 @@
-package dgtic.core.proyecto.controller.Libro;
+package dgtic.core.proyecto.controller.admin.Libro;
 
 
 import dgtic.core.proyecto.entity.*;
@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("libros")
+@RequestMapping("admin/libros")
 public class LibroController {
     @Autowired
     LibroService libroService;

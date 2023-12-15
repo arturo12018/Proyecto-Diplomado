@@ -1,4 +1,4 @@
-package dgtic.core.proyecto.controller.Autor;
+package dgtic.core.proyecto.controller.admin.Autor;
 
 import dgtic.core.proyecto.entity.Administrador;
 import dgtic.core.proyecto.entity.Autores;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("autores")
+@RequestMapping("admin/autores")
 public class AutorCotroller {
 
     @Autowired

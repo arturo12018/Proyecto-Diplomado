@@ -1,4 +1,4 @@
-package dgtic.core.proyecto.controller.editoriales;
+package dgtic.core.proyecto.controller.admin.editoriales;
 
 
 import dgtic.core.proyecto.entity.Autores;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("editoriales")
+@RequestMapping("admin/editoriales")
 public class EditorialesController {
 
     @Autowired

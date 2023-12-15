@@ -1,4 +1,4 @@
-package dgtic.core.proyecto.controller.administrador;
+package dgtic.core.proyecto.controller.admin.administrador;
 
 
 import dgtic.core.proyecto.entity.Administrador;
@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
-@RequestMapping("administrador")
+@RequestMapping("admin/administrador")
 public class AdministradorController {
 
     @Autowired

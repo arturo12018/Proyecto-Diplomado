@@ -1,4 +1,4 @@
-package dgtic.core.proyecto.controller.usuario;
+package dgtic.core.proyecto.controller.admin.usuario;
 
 
 import dgtic.core.proyecto.entity.Rol;
@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("usuario")
+@RequestMapping("admin/usuario")
 public class UsuarioController {
 
     @Autowired
