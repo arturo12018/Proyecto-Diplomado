@@ -51,7 +51,7 @@ public class LibroController {
         model.addAttribute("libros",libros);
 
         model.addAttribute("contenido","Lista Libros");
-        return "libros/lista-libros";
+        return "admin/libros/lista-libros";
     }
 
     @GetMapping("borrar-libros/{id}")
@@ -59,11 +59,11 @@ public class LibroController {
         try{
             libroService.borrar(id);
             flash.addFlashAttribute("success","Libro se borro bien");
-            return "redirect:/libros/lista-libros";
+            return "redirect:/admin/libros/lista-libros";
         }
         catch (Exception e){
             flash.addFlashAttribute("warning","Error al borrar libro");
-            return "redirect:/libros/lista-libros";
+            return "redirect:/admin/libros/lista-libros";
         }
 
 
@@ -80,7 +80,7 @@ public class LibroController {
         model.addAttribute("editorialSelect",editorialSelect);
         model.addAttribute("libro",libro);
         model.addAttribute("operacion","Alta libro");
-        return  "libros/alta-libros";
+        return  "admin/libros/alta-libros";
     }
 
     @PostMapping("alta-libros")
@@ -101,12 +101,12 @@ public class LibroController {
                     model.addAttribute("idiomasSelect", idiomasSelect);
 
                     model.addAttribute("editorialSelect", editorialSelect);
-                return "libros/alta-libros";
+                return "admin/libros/alta-libros";
             }
 
                if(libroService.guardarLibro(libro)) {
                    flash.addFlashAttribute("success","Se almaceno con éxito");
-                   return "redirect:/libros/lista-libros";
+                   return "redirect:/admin/libros/lista-libros";
                }
                 List<Idioma> idiomasSelect=idiomaRepository.findAll();
                 List<Autores> autoresSelect=autoresRepository.findAll();
@@ -117,7 +117,7 @@ public class LibroController {
                 model.addAttribute("editorialSelect",editorialSelect);
                 ObjectError er=new ObjectError("Duplicados","ISBN existente");
                 result.addError(er);
-                return "libros/alta-libros";
+                return "admin/libros/alta-libros";
 
 
     }
@@ -140,12 +140,12 @@ public class LibroController {
             model.addAttribute("autoresSelect", autoresSelect);
             model.addAttribute("idiomasSelect", idiomasSelect);
             model.addAttribute("editorialSelect", editorialSelect);
-            return "libros/modificar-libros";
+            return "admin/libros/modificar-libros";
         }
         else{
             libroService.guardar(libro);
             flash.addFlashAttribute("success","Se almaceno con éxito");
-            return "redirect:/libros/lista-libros";
+            return "redirect:/admin/libros/lista-libros";
         }
 
     }
@@ -162,7 +162,7 @@ public class LibroController {
         Libro libro = libroService.buscarPorId(id);
         model.addAttribute("anioPublicacion",libro.getAnioPublicacion());
         model.addAttribute("libro", libro);
-        return "libros/modificar-libros";
+        return "admin/libros/modificar-libros";
     }
 
 

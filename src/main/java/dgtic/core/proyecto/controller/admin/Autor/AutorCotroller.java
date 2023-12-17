@@ -33,6 +33,6 @@ public class AutorCotroller {
         model.addAttribute("autores",autores);
 
         model.addAttribute("contenido","Lista Autores");
-        return "autores/lista-autores";
+        return "admin/autores/lista-autores";
     }
 }

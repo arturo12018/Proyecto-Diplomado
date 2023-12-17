@@ -41,7 +41,7 @@ public class UsuarioController {
         model.addAttribute("usuarios",usuarios);
 
         model.addAttribute("contenido","Lista Usuarios");
-        return "usuario/lista-usuarios";
+        return "admin/usuario/lista-usuarios";
     }
 
     @GetMapping("borrar-usuarios/{id}")
@@ -49,10 +49,10 @@ public class UsuarioController {
         try{
             usuarioService.borrar(id);
             flash.addFlashAttribute("success","Cliente se borro bien");
-            return "redirect:/usuario/lista-usuarios";
+            return "redirect:/admin/usuario/lista-usuarios";
         }catch (Exception e){
             flash.addFlashAttribute("warning","Error al borrar cliente");
-            return "redirect:/usuario/lista-usuarios";
+            return "redirect:/admin/usuario/lista-usuarios";
         }
 
     }
@@ -62,7 +62,7 @@ public class UsuarioController {
         Usuario usuario=new Usuario();
         model.addAttribute("operacion","Alta de Usuario");
         model.addAttribute("usuario",usuario);
-        return "usuario/alta-usuario";
+        return "admin/usuario/alta-usuario";
     }
 
     @PostMapping("alta-usuario")
@@ -72,17 +72,17 @@ public class UsuarioController {
                 System.out.println(e.getDefaultMessage());
                 System.out.println(e.getCode());
                 model.addAttribute("operacion", "Error en datos");
-                return "usuario/alta-usuario";
+                return "admin/usuario/alta-usuario";
             }
         }
         try{
             usuarioService.guardar(usuario);
             flash.addFlashAttribute("success","Administrador se almaceno con éxito");
-            return "redirect:/usuario/lista-usuarios";
+            return "redirect:/admin/usuario/lista-usuarios";
         }catch (Exception e){
             ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
             result.addError(er);
-            return "usuario/alta-usuario";
+            return "admin/usuario/alta-usuario";
         }
     }
 
@@ -91,7 +91,7 @@ public class UsuarioController {
         Usuario usuario=usuarioService.buscarPorId(id);
         model.addAttribute("usuario",usuario);
         model.addAttribute("operacion","Modificar Usuario");
-        return "usuario/alta-usuario";
+        return "admin/usuario/alta-usuario";
     }
 
 

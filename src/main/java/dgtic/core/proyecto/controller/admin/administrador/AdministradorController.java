@@ -40,14 +40,14 @@ public class AdministradorController {
         model.addAttribute("administradors",administradors);
 
         model.addAttribute("contenido","Lista Administrador");
-        return "administrador/lista-administrador";
+        return "admin/administrador/lista-administrador";
     }
 
     @GetMapping("borrar-administrador/{id}")
     public String borrarAdmin(@PathVariable("id") Integer id, Model model, RedirectAttributes flash){
         administradorService.borrar(id);
         flash.addFlashAttribute("success","Cliente se borro bien");
-        return "redirect:/administrador/lista-administrador";
+        return "redirect:/admin/administrador/lista-administrador";
     }
 
     @GetMapping("alta-administrador")
@@ -57,7 +57,7 @@ public class AdministradorController {
         model.addAttribute("administrador",administrador);
         model.addAttribute("operacion","Alta Administrador");
         model.addAttribute("rolsSelct",rolsSelct);
-        return "administrador/alta-administrador";
+        return "admin/administrador/alta-administrador";
     }
 
     @PostMapping("alta-administrador")
@@ -70,20 +70,20 @@ public class AdministradorController {
                     List<Rol> rolsSelct=rolRepository.findAll();
                     model.addAttribute("rolsSelct",rolsSelct);
                     model.addAttribute("operacion", "Error en datos");
-                    return "administrador/alta-administrador";
+                    return "admin/administrador/alta-administrador";
                 }
             }
             try{
                 administradorService.guardar(administrador);
                 flash.addFlashAttribute("success","Administrador se almaceno con éxito");
-                return "redirect:/administrador/lista-administrador";
+                return "redirect:/admin/administrador/lista-administrador";
             }
             catch (Exception e){
                 List<Rol> rolsSelct=rolRepository.findAll();
                 model.addAttribute("rolsSelct",rolsSelct);
                 ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
                 result.addError(er);
-                return "administrador/alta-administrador";
+                return "admin/administrador/alta-administrador";
             }
 
 
@@ -97,7 +97,7 @@ public class AdministradorController {
         Administrador administrador=administradorService.buscarPorId(id);
         model.addAttribute("administrador",administrador);
         model.addAttribute("operacion","Modificar Administrador");
-        return "administrador/alta-administrador";
+        return "admin/administrador/alta-administrador";
 
     }
 

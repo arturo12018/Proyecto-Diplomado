@@ -31,6 +31,6 @@ public class EditorialesController {
         model.addAttribute("editorials",editorials);
 
         model.addAttribute("contenido","Lista Editoriales");
-        return "editoriales/lista-editoriales";
+        return "admin/editoriales/lista-editoriales";
     }
 }

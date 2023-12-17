@@ -10,7 +10,7 @@
     <div class="card">
         <h4 class="card-header"><strong>Formulario de registro</strong></h4>
         <div class="card-body">
-            <form th:action="@{/usuario/alta-usuario}" th:object="${usuario}"
+            <form th:action="@{/admin/usuario/alta-usuario}" th:object="${usuario}"
                   method="post">
                 <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
                     Verifique los siguientes errores

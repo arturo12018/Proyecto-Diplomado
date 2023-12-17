@@ -4,12 +4,8 @@
 <head th:replace="plantillas/plantilla :: head"></head>
 </head>
 <body>
-    <header th:replace="plantillas/plantilla :: header"></header>
-    <main>
-        <div class="container text-center">
-            <h1 th:text="${contenido}"></h1>
-        </div>
+    <main class="container text-center">
+        <h1 th:text="${contenido}"></h1>
     </main>
-    <footer th:replace="plantillas/plantilla :: footer"></footer>
 </body>
 </html>

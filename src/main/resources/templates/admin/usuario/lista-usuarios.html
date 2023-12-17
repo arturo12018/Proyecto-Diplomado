@@ -27,9 +27,9 @@
             <td th:if="${cl.estadoActivo}" th:text="Activo"></td>
             <td th:if="${!cl.estadoActivo}" th:text="Inactivo"></td>
             <td>
-                <a th:href="@{/usuario/modificar-usuario/{id} (id=${cl.id})}"
+                <a th:href="@{/admin/usuario/modificar-usuario/{id} (id=${cl.id})}"
                    class="btn btn-success" ><i class="fas fa-pencil-alt" aria-hidden="true"></i>Modificar</a>
-                <a th:href="@{/usuario/borrar-usuarios/{id} (id=${cl.id})}"
+                <a th:href="@{/admin/usuario/borrar-usuarios/{id} (id=${cl.id})}"
                    class="btn btn-danger" ><i class="fas fa-trash" aria-hidden="true"></i>Eliminar</a>
 
 

@@ -30,6 +30,6 @@ public class ComprasController {
         model.addAttribute("compra",compra);
 
         model.addAttribute("contenido","Lista Compras");
-        return "compras/lista-compras";
+        return "admin/compras/lista-compras";
     }
 }
