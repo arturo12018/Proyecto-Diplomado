@@ -1,6 +1,8 @@
 package dgtic.core.proyecto.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @NoArgsConstructor
@@ -18,5 +20,8 @@ public class Editorial {
     @Column(name="ID_editorial")
     private Integer id;
 
+    @Column(length = 50)
+    @Size(min = 3, message = "El nombre debe ser mayor a 3 caracteres")
+    @NotBlank(message = "Nombre no debe ser vacío")
     private String nombre;
 }

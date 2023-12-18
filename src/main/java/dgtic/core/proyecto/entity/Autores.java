@@ -1,6 +1,8 @@
 package dgtic.core.proyecto.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.List;
@@ -18,12 +20,17 @@ public class Autores {
     @Column(name = "ID_autor")
     private String id;
 
-    @Column(name = "Apellido_Materno")
+    @Column(name = "Apellido_Materno",length = 50)
     private String apellidoMaterno;
 
-    @Column(name = "Apellido_Paterno")
+    @Column(name = "Apellido_Paterno",length = 50)
+    @Size(min = 3, message = "El Apellido Paterno debe ser mayor a 3 caracteres")
+    @NotBlank(message = "Apellido paterno no debe ser vacío")
     private String apellidoPaterno;
 
+    @Column(length = 50)
+    @Size(min = 3, message = "El nombre debe ser mayor a 3 caracteres")
+    @NotBlank(message = "Nombre no debe ser vacío")
     private String nombre;
 
     @ManyToMany(mappedBy = "autores",fetch = FetchType.EAGER)

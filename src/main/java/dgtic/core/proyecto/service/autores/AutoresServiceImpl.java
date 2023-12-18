@@ -26,4 +26,20 @@ public class AutoresServiceImpl implements AutoresService{
         return autoresRepository.findAll(pageable);
     }
 
+    @Override
+    public void borrar(Integer id) {
+        autoresRepository.deleteById(id);
+    }
+
+    @Override
+    public void guardar(Autores autores) {
+        autoresRepository.save(autores);
+    }
+
+    @Override
+    public Autores buscarPorId(Integer id) {
+        return autoresRepository.findById(id).get();
+    }
+
+
 }

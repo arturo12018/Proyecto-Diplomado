@@ -10,4 +10,10 @@ import java.util.List;
 public interface AutoresService {
     List<Autores> findAll();
     Page<Autores> findAll(Pageable pageable);
+
+    void borrar(Integer id);
+
+    void guardar(Autores autores);
+
+    Autores buscarPorId(Integer id);
 }
