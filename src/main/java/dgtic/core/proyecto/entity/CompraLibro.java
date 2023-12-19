@@ -33,4 +33,6 @@ public class CompraLibro {
     @Column(name = "Precio_unitario")
     private Double precioUnitario;
 
+
+
 }

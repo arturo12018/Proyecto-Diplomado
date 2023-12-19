@@ -17,4 +17,9 @@ public class CompraServiceImpl implements CompraService{
     public Page<Compra> findAll(Pageable pageable) {
         return compraRepository.findAll(pageable);
     }
+
+    @Override
+    public Compra buscarPorId(Integer id) {
+        return compraRepository.findById(id).get();
+    }
 }

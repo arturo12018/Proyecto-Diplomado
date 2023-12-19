@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class CompraLibroId implements Serializable {
 
     @Column(name = "ID_compra")
-    private int idCompra;
+    private Integer idCompra;
 
     @Column(name = "ISBN")
     private Long isbn;
