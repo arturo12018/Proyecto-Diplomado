@@ -32,6 +32,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("admin/libros")
+@SessionAttributes("libro")
 public class LibroController {
     @Autowired
     LibroService libroService;
