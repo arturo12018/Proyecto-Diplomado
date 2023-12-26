@@ -10,22 +10,36 @@
     <main class="container text-center">
         <h1 th:text="${contenido}"></h1>
         <div class="row">
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="numCompra">Número de compra</label>
+                    <input type="text" class="form-control"
+                           id="numCompra" name="numCompra"
+
+                           th:field="*{compra.id}" required  disabled>
+                </div>
+            </div>
+
+
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="correo">Correo</label>
                     <input type="text" class="form-control"
                            id="correo" name="correo"
-                           placeholder="correo"
+
                            th:field="*{compra.usuario.correo}" required  disabled>
                 </div>
             </div>
+
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="fecha">Fecha de compra</label>
                     <input type="text" class="form-control"
                            id="fecha" name="fecha"
-                           placeholder="fecha"
+
                            th:field="*{compra.fecha}" required  disabled>
                 </div>
             </div>
@@ -35,7 +49,7 @@
                     <label for="pais">Pais</label>
                     <input type="text" class="form-control"
                            id="pais" name="pais"
-                           placeholder="pais"
+
                            th:field="*{compra.pais.nombre}" required  disabled>
                 </div>
             </div>
@@ -45,7 +59,7 @@
                     <label for="estado">Ciudad/Estado</label>
                     <input type="text" class="form-control"
                            id="estado" name="estado"
-                           placeholder="estado"
+
                            th:field="*{compra.estado.nombre}" required  disabled>
                 </div>
             </div>
@@ -55,10 +69,10 @@
                     <label for="direccion">Dirección</label>
                     <input type="text" class="form-control"
                            id="direccion" name="direccion"
-                           placeholder="direccion"
                            th:field="*{compra.direccion}" required  disabled>
                 </div>
             </div>
+
 
 
 
@@ -76,6 +90,7 @@
                 <th scope="col">Edicion</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Precio Unitario</th>
+                <th scope="col">Imagen</th>
             </tr>
             </thead>
             <tbody>
@@ -86,15 +101,22 @@
                 <td th:text="${cl.libro.edicion}"></td>
                 <td th:text="${cl.precioUnitario}"></td>
                 <td th:text="${cl.cantidad}"></td>
-
-
-
-
-
-
+                <td>
+                    <img th:src="@{'/imagenes/'+${cl.libro.imagenPortada}}" width="20%" height="20%" style="border: 1px solid #1a1d20"><br/>
+                </td>
             </tr>
             </tbody>
         </table>
+
+
+
+        <div class="offset-md-6">
+            <div class="form-group text-right">
+                <label for="total">Total</label>
+                <h5 id="total" name="total" th:text="*{compra.total}"></h5>
+            </div>
+        </div>
+
     </main>
     <footer th:replace="plantillas/plantilla :: footer"></footer>
 </body>

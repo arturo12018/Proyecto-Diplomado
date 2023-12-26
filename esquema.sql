@@ -76,7 +76,7 @@ CREATE TABLE libros (
   ID_idioma INT NOT NULL,
   Anio_publicacion DATE NOT NULL,
   Edicion INT NOT NULL,
-  Imagen_portada VARCHAR(255), -- NOT NULL,
+  Imagen_portada VARCHAR(255) NOT NULL,
   Valoracion DECIMAL(3,2) NOT NULL DEFAULT 0.00 CHECK (Precio>0) ,
   Precio DECIMAL(10,2) NOT NULL CHECK (Precio>=0),
   Numero_paginas INT NOT NULL CHECK (Numero_paginas > 0),
@@ -202,12 +202,12 @@ INSERT INTO autores (Apellido_Paterno, Apellido_Materno, Nombre) VALUES
 -- Insertar libros
 INSERT INTO libros (ISBN, Titulo, Descripcion, ID_editorial, ID_idioma, Anio_publicacion, Edicion, Imagen_portada, Valoracion, Precio, Numero_paginas)
 VALUES
-  (9788494562002, 'Cien años de soledad', 'Una novela que narra la historia de la familia Buendía', 1, 1, '1967-01-01', 1, 'imagen1.jpg', 4.8, 19.99, 432),
-  (9788408160336, 'El Código Da Vinci', 'Un emocionante thriller de conspiraciones y misterio', 2, 2, '2003-02-01', 1, 'imagen2.jpg', 4.5, 24.99, 589),
-  (9789874563211, 'El Alquimista', 'La historia de un joven en busca de su destino personal', 3, 3, '1988-03-01', 1, 'imagen3.jpg', 4.7, 14.99, 208),
-  (9788499891239, '1984', 'Una distopía que presenta un mundo bajo un gobierno totalitario', 4, 4, '1949-06-01', 1, 'imagen4.jpg', 4.2, 17.99, 328),
-  (9788408214332, 'Crónica de una muerte anunciada', 'La historia de un asesinato en un pequeño pueblo', 3, 1, '1981-01-01', 1, 'imagen5.jpg', 4.6, 16.99, 150),
-  (9786073135307, 'Rayuela', 'Una novela que desafía la estructura tradicional', 1, 2, '1963-05-01', 1, 'imagen6.jpg', 4.4, 22.99, 536);
+  (9788494562002, 'Cien años de soledad', 'Una novela que narra la historia de la familia Buendía', 1, 1, '1967-01-01', 1, 'Sin_imagen_disponible.jpg', 4.8, 19.99, 432),
+  (9788408160336, 'El Código Da Vinci', 'Un emocionante thriller de conspiraciones y misterio', 2, 2, '2003-02-01', 1, 'Sin_imagen_disponible.jpg', 4.5, 24.99, 589),
+  (9789874563211, 'El Alquimista', 'La historia de un joven en busca de su destino personal', 3, 3, '1988-03-01', 1, 'Sin_imagen_disponible.jpg', 4.7, 14.99, 208),
+  (9788499891239, '1984', 'Una distopía que presenta un mundo bajo un gobierno totalitario', 4, 4, '1949-06-01', 1, 'Sin_imagen_disponible.jpg', 4.2, 17.99, 328),
+  (9788408214332, 'Crónica de una muerte anunciada', 'La historia de un asesinato en un pequeño pueblo', 3, 1, '1981-01-01', 1, 'Sin_imagen_disponible.jpg', 4.6, 16.99, 150),
+  (9786073135307, 'Rayuela', 'Una novela que desafía la estructura tradicional', 1, 2, '1963-05-01', 1, 'Sin_imagen_disponible.jpg', 4.4, 22.99, 536);
 
 
 

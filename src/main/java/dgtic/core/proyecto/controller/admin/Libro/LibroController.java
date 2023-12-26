@@ -6,9 +6,12 @@ import dgtic.core.proyecto.repository.AutoresRepository;
 import dgtic.core.proyecto.repository.EditorialRepository;
 import dgtic.core.proyecto.repository.IdiomaRepository;
 import dgtic.core.proyecto.service.Libro.LibroService;
+import dgtic.core.proyecto.util.Archivos;
 import dgtic.core.proyecto.util.RenderPagina;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +23,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +44,10 @@ public class LibroController {
 
     @Autowired
     EditorialRepository editorialRepository;
+
+
+    @Value("${ejemplo.imagen.ruta}")
+    private String archivoRuta;
 
 
     @GetMapping("lista-libros")
@@ -84,43 +92,56 @@ public class LibroController {
     }
 
     @PostMapping("alta-libros")
-    public String altaLibro(@Valid @ModelAttribute("libro")Libro libro, BindingResult result, Model model, RedirectAttributes flash){
+    public String altaLibro(@Valid @ModelAttribute("libro") Libro libro,
+                            BindingResult result, Model model, RedirectAttributes flash) {
 
-            if(result.hasErrors()){
-                for (FieldError e :result.getFieldErrors()) {
-                    System.out.println(e.getDefaultMessage());
-                    System.out.println(e.getCode());
+        System.out.println("Entre");
 
-                    model.addAttribute("operacion", "Error en los datos");
+        if (result.hasErrors()) {
+            for (FieldError e : result.getFieldErrors()) {
+                System.out.println(e.getDefaultMessage());
+                System.out.println(e.getCode());
 
-                }
-                List<Idioma> idiomasSelect = idiomaRepository.findAll();
-                    List<Autores> autoresSelect = autoresRepository.findAll();
-                    List<Editorial> editorialSelect = editorialRepository.findAll();
-                    model.addAttribute("autoresSelect", autoresSelect);
-                    model.addAttribute("idiomasSelect", idiomasSelect);
-
-                    model.addAttribute("editorialSelect", editorialSelect);
-                return "admin/libros/alta-libros";
+                model.addAttribute("operacion", "Error en los datos");
             }
 
-               if(libroService.guardarLibro(libro)) {
-                   flash.addFlashAttribute("success","Se almaceno con éxito");
-                   return "redirect:/admin/libros/lista-libros";
-               }
-                List<Idioma> idiomasSelect=idiomaRepository.findAll();
-                List<Autores> autoresSelect=autoresRepository.findAll();
-                List<Editorial> editorialSelect=editorialRepository.findAll();
-                model.addAttribute("autoresSelect",autoresSelect);
-                model.addAttribute("idiomasSelect",idiomasSelect);
-                model.addAttribute("operacion","Error en los datos");
-                model.addAttribute("editorialSelect",editorialSelect);
-                ObjectError er=new ObjectError("Duplicados","ISBN existente");
-                result.addError(er);
-                return "admin/libros/alta-libros";
+            List<Idioma> idiomasSelect = idiomaRepository.findAll();
+            List<Autores> autoresSelect = autoresRepository.findAll();
+            List<Editorial> editorialSelect = editorialRepository.findAll();
+            model.addAttribute("autoresSelect", autoresSelect);
+            model.addAttribute("idiomasSelect", idiomasSelect);
+            model.addAttribute("editorialSelect", editorialSelect);
 
+            return "admin/libros/alta-libros";
+        }
 
+        if (libro.getImagenPortada() == null || libro.getImagenPortada().isEmpty()) {
+            libro.setImagenPortada("Sin_imagen_disponible.jpg");
+        } else {
+            String archivo = libro.getImagenPortada();
+            String nuevoArchivo = libro.getTitulo() + "_" + libro.getIsbn() + "_" + archivo;
+            Archivos.renombrar(archivoRuta, archivo, nuevoArchivo);
+            libro.setImagenPortada(nuevoArchivo);
+        }
+
+        if (libroService.guardarLibro(libro)) {
+            flash.addFlashAttribute("success", "Se almaceno con éxito");
+            return "redirect:/admin/libros/lista-libros";
+        }
+
+        List<Idioma> idiomasSelect = idiomaRepository.findAll();
+        List<Autores> autoresSelect = autoresRepository.findAll();
+        List<Editorial> editorialSelect = editorialRepository.findAll();
+        model.addAttribute("autoresSelect", autoresSelect);
+        model.addAttribute("idiomasSelect", idiomasSelect);
+        model.addAttribute("operacion", "Error en los datos");
+        model.addAttribute("editorialSelect", editorialSelect);
+        ObjectError er = new ObjectError("Duplicados", "ISBN existente");
+        result.addError(er);
+
+        return "admin/libros/alta-libros";
     }
+
 
 
     @PostMapping("modificar-libros")
@@ -165,6 +186,34 @@ public class LibroController {
         return "admin/libros/modificar-libros";
     }
 
+
+    @PostMapping(value = "salvar")
+    public String guardar(@RequestParam("imagenarchivo") MultipartFile multipartFile,Model model,
+                          HttpSession session){
+        if(!multipartFile.isEmpty()){
+            String imagenNombre= Archivos.almacenar(multipartFile,archivoRuta);
+            if(imagenNombre!=null){
+                Libro libro=(Libro)session.getAttribute("libro");
+                libro.setImagenPortada(imagenNombre);
+            }
+
+        }
+
+
+
+       //Libro libro=new Libro();
+
+        List<Idioma> idiomasSelect=idiomaRepository.findAll();
+        List<Autores> autoresSelect=autoresRepository.findAll();
+        List<Editorial> editorialSelect=editorialRepository.findAll();
+        model.addAttribute("idiomasSelect",idiomasSelect);
+        model.addAttribute("autoresSelect",autoresSelect);
+        model.addAttribute("editorialSelect",editorialSelect);
+        //model.addAttribute("libro",libro);
+        model.addAttribute("operacion","Alta libro");
+        return  "admin/libros/alta-libros";
+
+    }
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder){

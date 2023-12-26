@@ -20,6 +20,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Numero de Paginas</th>
             <th scope="col">Autores</th>
+            <th scope="col">Portada</th>
             <th scope="col">Operaciones</th>
 
         </tr>
@@ -40,6 +41,11 @@
                     <li th:each="autor : ${cl.autores}" th:text="${autor.nombre} + ' ' + ${autor.apellidoPaterno} + ' ' + (${autor.apellidoMaterno} ?: '')"></li>
                 </ul>
             </td>
+
+            <td>
+                <img th:src="@{'/imagenes/'+${cl.imagenPortada}}" width="100%" height="100%" style="border: 1px solid #1a1d20"><br/>
+            </td>
+
 
 
 

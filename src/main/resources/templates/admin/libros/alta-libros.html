@@ -9,9 +9,25 @@
     <h1 th:text="${operacion}"></h1>
     <div class="card">
         <h4 class="card-header"><strong>Formulario de registro</strong></h4>
-        <div class="card-body">
+
+        <!--<div class="row">
+            <div class="col-md-9">
+                <div class="form-floating">
+                    <form th:action="@{/admin/libros/salvar}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="imagenarchivo">Subir imagen (opcional)</label>
+                            <div class="input-group mb-1">
+                                <input type="file" class="form-control" id="imagenarchivo" name="imagenarchivo"/>
+                                <button type="submit" class="btn btn-primary">Subir imagen</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+
             <form th:action="@{/admin/libros/alta-libros}" th:object="${libro}"
-                  method="post">
+                  method="post" >
                 <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
                     Verifique los siguientes errores
                     <ul>
@@ -19,6 +35,18 @@
                     </ul>
                 </div>
                 <div class="row">
+
+<!--                    <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="imagenarchivo">Subir imagen (opcional)</label>
+                                    <div class="input-group mb-1">
+                                        <input type="file" class="form-control" id="imagenarchivo" name="imagenarchivo"/>
+                                       &lt;!&ndash; <button type="submit" class="btn btn-primary">Subir imagen</button>&ndash;&gt;
+                                    </div>
+                                </div>
+                    </div>-->
+
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="isbn">ISBN</label>
@@ -146,7 +174,6 @@
                 <input type="hidden" name="id_cte" th:field="*{isbn}"/>
             </form>
         </div>
-    </div>
 </main>
 <footer th:replace="plantillas/plantilla :: footer"></footer>
 
