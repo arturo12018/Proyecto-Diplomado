@@ -37,7 +37,7 @@ CREATE TABLE administrador (
   Apellido_Paterno VARCHAR(50) NOT NULL,
   Apellido_Materno VARCHAR(50),
   Correo VARCHAR(100) NOT NULL UNIQUE,
-  Contraseña VARCHAR(24) NOT NULL,
+  Contraseña CHAR(150) NOT NULL,
   ID_rol INT NOT NULL,
   Estado_Activo BIT DEFAULT 1,
   FOREIGN KEY (ID_rol) REFERENCES rol(ID_rol)
@@ -169,11 +169,11 @@ VALUES
 -- Insertar ejemplos de registros de administradores en la tabla Administrador
 INSERT INTO administrador (Nombre, Apellido_Paterno, Apellido_Materno, Correo, Contraseña, ID_rol, Estado_Activo)
 VALUES
-  ('Ana', 'García', 'López', 'ana.garcia@example.com', 'pass123', 1, 1),
-  ('Juan', 'Martínez', 'Sánchez', 'juan.martinez@example.com', 'admin456', 2, 1),
-  ('María', 'López', 'Hernández', 'maria.lopez@example.com', 'password789',  1, 0),
-  ('Pedro', 'Ramírez', 'Gómez', 'pedro.ramirez@example.com', 'admin1234', 3, 1),
-  ('Laura', 'González', 'Pérez', 'laura.gonzalez@example.com', 'passpass',  2, 0);
+  ('Ana', 'García', 'López', 'ana.garcia@example.com', '$2a$10$DxzByNC64eZA9twAQJjTteA2.0AMLHbIjU8nM.jxpX2hI1Jje2NtW', 1, 1),
+  ('Juan', 'Martínez', 'Sánchez', 'juan.martinez@example.com', '$2a$10$DxzByNC64eZA9twAQJjTteA2.0AMLHbIjU8nM.jxpX2hI1Jje2NtW', 2, 1),
+  ('María', 'López', 'Hernández', 'maria.lopez@example.com', '$2a$10$DxzByNC64eZA9twAQJjTteA2.0AMLHbIjU8nM.jxpX2hI1Jje2NtW',  1, 0),
+  ('Pedro', 'Ramírez', 'Gómez', 'pedro.ramirez@example.com', '$2a$10$DxzByNC64eZA9twAQJjTteA2.0AMLHbIjU8nM.jxpX2hI1Jje2NtW', 3, 1),
+  ('Laura', 'González', 'Pérez', 'laura.gonzalez@example.com', '$2a$10$DxzByNC64eZA9twAQJjTteA2.0AMLHbIjU8nM.jxpX2hI1Jje2NtW',  2, 0);
 
 -- Inserta idiomas
 INSERT INTO idiomas (Nombre) VALUES

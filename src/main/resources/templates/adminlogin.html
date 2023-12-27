@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pixup Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<!--<a th:href="@{/registro}">Alta Usuario</a>-->
+<br/><br/>
+<form method="POST" th:action="@{/autenticacion}" id="loginForm">
+    <label for="username">Usuario: </label>
+    <input type="text" name="usuario" id="usuario" />
+    <br/>
+    <label for="password">Password: </label>
+    <input type="password" name="pwd" id="pwd" />
+    <br/>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <input type="submit" value="Login"/>
+</form>
+</body>
+</html>

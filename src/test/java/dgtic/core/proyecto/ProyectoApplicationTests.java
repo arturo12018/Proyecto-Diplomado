@@ -1,14 +1,13 @@
 package dgtic.core.proyecto;
 
+import dgtic.core.proyecto.entity.Administrador;
 import dgtic.core.proyecto.entity.CompraLibro;
 import dgtic.core.proyecto.entity.CompraLibroId;
-import dgtic.core.proyecto.repository.AdministradorRepository;
-import dgtic.core.proyecto.repository.CompraLibroRepository;
-import dgtic.core.proyecto.repository.CompraRepository;
-import dgtic.core.proyecto.repository.LibrosRepository;
+import dgtic.core.proyecto.repository.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -16,16 +15,32 @@ import java.util.List;
 class ProyectoApplicationTests {
 
 	@Autowired
-	CompraLibroRepository administradorRepository;
+	AdministradorRepository administradorRepository;
+
+	@Autowired
+	RolRepository rolRepository;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Test
 	void contextLoads() {
 
-		//administradorRepository.findAll().forEach(System.out::println);
 
 
-		List<CompraLibro> compraLibros=administradorRepository.findById_IdCompra(1);
-		compraLibros.forEach(System.out::println);
+		Administrador admin = new Administrador();
+		admin.setNombre("Juan");
+		admin.setApellidoPaterno("Pérez");
+		admin.setApellidoMaterno("López");
+			admin.setCorreo("juan.perez2@ejemplo.com");
+		admin.setConstrania(
+				passwordEncoder.encode("administracion"));
+		admin.setRol(rolRepository.findById(1).get());
+		admin.setEstadoActivo(true);
+
+		administradorRepository.save(admin);
+
+
 
 	}
 

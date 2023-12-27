@@ -6,6 +6,12 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,7 +20,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @Entity
-public class Administrador {
+public class Administrador implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_admin")
@@ -37,8 +43,8 @@ public class Administrador {
     @Email(message = "Error en el correo o ya existe")
     private String correo;
 
-    @Column(name = "Contraseña",length = 24)
-    @Size(min = 8,max = 24, message = "La contraseña debe serentre 8 y 24 caracteres")
+    @Column(name = "Contraseña",length = 60)
+    @Size(min = 8,max = 60, message = "La contraseña debe serentre 8 y 24 caracteres")
     @NotBlank(message = "Contraseña vacia")
     private String constrania;
 
@@ -50,4 +56,39 @@ public class Administrador {
     private Boolean estadoActivo;
 
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        System.out.println("ROLE_"+this.rol.getDescripcion());
+            return Arrays.asList(new SimpleGrantedAuthority("ROLE_"+this.rol.getDescripcion()));
+    }
+
+    @Override
+    public String getPassword() {
+        return this.constrania;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.correo;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

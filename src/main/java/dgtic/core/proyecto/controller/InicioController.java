@@ -26,9 +26,18 @@ public class InicioController {
         return "principal";
     }
 
-    @GetMapping("admin/login")
-    public String loginAdmin(Model model){
-        model.addAttribute("contenido","Inicio");
-        return "admin/login";
+    @GetMapping("/adminlogin")
+    public String loginAdmin(){
+        return "adminlogin";
     }
+
+    @GetMapping("/admin/inicio")
+    public String inicioAdmin(Model model){
+        model.addAttribute("contenido","Administracion");
+        return "admin/inicio";
+    }
+
+
+
+
 }
