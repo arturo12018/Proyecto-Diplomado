@@ -6,6 +6,7 @@ import dgtic.core.proyecto.repository.AdministradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,6 +14,9 @@ public class AdministradorServiceImpl implements AdministradorService{
 
     @Autowired
     AdministradorRepository administradorRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public Page<Administrador> findAll(Pageable pageable) {
@@ -26,6 +30,8 @@ public class AdministradorServiceImpl implements AdministradorService{
 
     @Override
     public void guardar(Administrador administrador) {
+        administrador.setConstrania(
+                passwordEncoder.encode(administrador.getConstrania()));
         administradorRepository.save(administrador);
     }
 

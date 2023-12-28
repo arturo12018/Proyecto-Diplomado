@@ -58,7 +58,7 @@ public class Administrador implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        System.out.println("ROLE_"+this.rol.getDescripcion());
+
             return Arrays.asList(new SimpleGrantedAuthority("ROLE_"+this.rol.getDescripcion()));
     }
 
@@ -79,7 +79,12 @@ public class Administrador implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+
+
+            return this.estadoActivo==true;
+
+
+
     }
 
     @Override
