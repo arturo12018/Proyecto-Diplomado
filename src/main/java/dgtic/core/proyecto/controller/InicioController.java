@@ -37,6 +37,11 @@ public class InicioController {
         return "admin/inicio";
     }
 
+    @GetMapping("/admin/sinPermisos")
+    public String sinPermisos(Model model){
+        return "admin/sinPermisos";
+    }
+
 
 
 

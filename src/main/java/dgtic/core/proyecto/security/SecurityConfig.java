@@ -37,11 +37,14 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .requestMatchers("/admin/**").hasRole("Administración general")
-                .requestMatchers("/admin/inicio").hasAnyRole("Administración de usuarios y administradores", "Administración de libros")
-                .requestMatchers("/admin/administrador", "/admin/usuario").hasRole("Administración de usuarios y administradores")
-                .requestMatchers("/admin/libros", "/admin/autores", "/admin/editoriales").hasRole("Administración de libros")
+
+                .requestMatchers("/admin/inicio","/admin/sinPermisos").hasAnyRole("Administración_de_usuarios_y_administradores", "Administración_de_libros","Administración_general")
+                .requestMatchers("/admin/administrador/**", "/admin/usuario/**").hasAnyRole("Administración_de_usuarios_y_administradores","Administración_general")
+                .requestMatchers("/admin/libros/**", "/admin/autores/**", "/admin/editoriales/**").hasAnyRole("Administración_de_libros","Administración_general")
+                //.requestMatchers("/admin/**").hasRole("Administración_general")
                 .requestMatchers("/").permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/admin/sinPermisos")
                 .and()
                 .formLogin(formLogin ->
                         formLogin

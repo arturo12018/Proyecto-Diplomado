@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="es">
+<head th:replace="plantillas/plantilla :: head"></head>
+</head>
+<body>
+<header th:replace="plantillas/plantilla :: header"></header>
+<main class="container text-center">
+    <h1>Sin permisos</h1>
+    <p>Lo sentimos, pero no tienes permiso para acceder a esta página.</p>
+    <a href="/admin/inicio" class="btn btn-primary">Regresar a la página de inicio</a>
+</main>
+<footer th:replace="plantillas/plantilla :: footer"></footer>
+</body>
+</html>
