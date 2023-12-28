@@ -40,4 +40,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario buscarPorId(Integer id) {
         return usuarioRepository.findById(id).get();
     }
+
+    @Override
+    public void modificar(Usuario usuario) {
+        Usuario usuarioTemp=usuarioRepository.findById(usuario.getId()).get();
+        usuario.setConstrasena(usuarioTemp.getConstrasena());
+        usuarioRepository.save(usuario);
+    }
 }

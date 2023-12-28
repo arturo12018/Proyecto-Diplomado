@@ -91,7 +91,28 @@ public class UsuarioController {
         Usuario usuario=usuarioService.buscarPorId(id);
         model.addAttribute("usuario",usuario);
         model.addAttribute("operacion","Modificar Usuario");
-        return "admin/usuario/alta-usuario";
+        return "admin/usuario/modificar-usuario";
+    }
+
+    @PostMapping("modificar-usuario")
+    public String modificarUsuario(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, Model model, RedirectAttributes flash){
+        if(result.hasErrors()){
+            for (FieldError e :result.getFieldErrors()) {
+                System.out.println(e.getDefaultMessage());
+                System.out.println(e.getCode());
+                model.addAttribute("operacion", "Error en datos");
+                return "admin/usuario/modificar-usuario";
+            }
+        }
+        try{
+            usuarioService.modificar(usuario);
+            flash.addFlashAttribute("success","Administrador se almaceno con éxito");
+            return "redirect:/admin/usuario/lista-usuarios";
+        }catch (Exception e){
+            ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
+            result.addError(er);
+            return "admin/usuario/modificar-usuario";
+        }
     }
 
 

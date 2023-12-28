@@ -15,4 +15,7 @@ public interface AdministradorService {
 
     Administrador buscarPorId(Integer id);
 
+
+    void modificar(Administrador administrador);
+
 }

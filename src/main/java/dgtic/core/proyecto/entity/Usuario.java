@@ -44,7 +44,7 @@ public class Usuario {
 
     @Column(name = "Contraseña",length = 60)
     @Size(min = 8,max = 60, message = "La contraseña debe serentre 8 y 24 caracteres")
-    @NotBlank(message = "Contraseña vacia")
+    //@NotBlank(message = "Contraseña vacia")
     private String constrasena;
 
     @Column(name = "Estado_Activo")

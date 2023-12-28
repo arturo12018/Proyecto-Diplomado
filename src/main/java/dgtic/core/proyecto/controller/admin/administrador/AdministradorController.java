@@ -97,7 +97,39 @@ public class AdministradorController {
         Administrador administrador=administradorService.buscarPorId(id);
         model.addAttribute("administrador",administrador);
         model.addAttribute("operacion","Modificar Administrador");
-        return "admin/administrador/alta-administrador";
+        return "admin/administrador/modificar-administrador";
+
+    }
+
+
+    @PostMapping("modificar-administrador")
+    public String modificarAdministrador(@Valid @ModelAttribute("administrador") Administrador administrador, BindingResult result, Model model, RedirectAttributes flash){
+
+        if(result.hasErrors()){
+            for (FieldError e :result.getFieldErrors()) {
+                System.out.println(e.getDefaultMessage());
+                System.out.println(e.getCode());
+
+                List<Rol> rolsSelct=rolRepository.findAll();
+                model.addAttribute("rolsSelct",rolsSelct);
+                model.addAttribute("operacion", "Error en datos");
+                return "admin/administrador/modificar-administrador";
+            }
+        }
+        try{
+            administradorService.modificar(administrador);
+            flash.addFlashAttribute("success","Administrador se almaceno con éxito");
+            return "redirect:/admin/administrador/lista-administrador";
+        }
+        catch (Exception e){
+            List<Rol> rolsSelct=rolRepository.findAll();
+            model.addAttribute("rolsSelct",rolsSelct);
+            ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
+            result.addError(er);
+            return "admin/administrador/modificar-administrador";
+        }
+
+
 
     }
 

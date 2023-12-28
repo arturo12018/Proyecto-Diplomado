@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="es">
+<head th:replace="plantillas/plantilla :: head"></head>
+</head>
+<body>
+<header th:replace="plantillas/plantilla :: header"></header>
+<main class="container text-center">
+    <h1 th:text="${operacion}"></h1>
+    <div class="card">
+        <h4 class="card-header"><strong>Formulario de registro</strong></h4>
+        <div class="card-body">
+            <form th:action="@{/admin/administrador/modificar-administrador}" th:object="${administrador}"
+                  method="post">
+                <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
+                    Verifique los siguientes errores
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control"
+                                   id="nombre" name="nombre"
+                                   placeholder="Nombre del Usuario"
+                                   th:field="*{nombre}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="apellidoPaterno">Apellido Paterno</label>
+                            <input type="text" class="form-control"
+                                   id="apellidoPaterno" name="apellidoPaterno"
+                                   th:field="*{apellidoPaterno}"
+                                   placeholder="Apellido Paterno" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="apellidoMaterno">Apellido Materno</label>
+                            <input type="text" class="form-control"
+                                   id="apellidoMaterno" name="apellidoMaterno"
+                                   th:field="*{apellidoMaterno}"
+                                   placeholder="Apellido Materno (Opcional)">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="correo">Correo</label>
+                            <input type="text" class="form-control"
+                                   id="correo" name="correo"
+                                   th:field="*{correo}"
+                                   placeholder="Correo" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="rol">Rol</label>
+                            <select class="form-control" th:field="*{rol}" id="rol" name="rol" required="requiered">
+                                <option th:each="sel : ${rolsSelct}" th:value="${sel.id}" th:text="${sel.descripcion}"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="estadoActivo">Estatus</label>
+                            <select class="form-control" th:field="*{estadoActivo}" id="estadoActivo" name="estadoActivo" required="requiered">
+                                <option th:value=1>Activo</option>
+                                <option th:value=0>Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-1">
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+
+                </div>
+                <input type="hidden" name="id_cte" th:field="*{id}"/>
+            </form>
+        </div>
+    </div>
+</main>
+<footer th:replace="plantillas/plantilla :: footer"></footer>
+</body>
+</html>

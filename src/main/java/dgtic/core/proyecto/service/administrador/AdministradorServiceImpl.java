@@ -39,4 +39,11 @@ public class AdministradorServiceImpl implements AdministradorService{
     public Administrador buscarPorId(Integer id) {
         return administradorRepository.findById(id).get();
     }
+
+    @Override
+    public void modificar(Administrador administrador) {
+        Administrador administradorTemp=administradorRepository.findById(administrador.getId()).get();
+        administrador.setConstrania(administradorTemp.getConstrania());
+        administradorRepository.save(administrador);
+    }
 }
