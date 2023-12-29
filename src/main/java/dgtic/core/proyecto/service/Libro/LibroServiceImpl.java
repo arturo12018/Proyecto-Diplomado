@@ -49,7 +49,7 @@ public class LibroServiceImpl implements LibroService{
     }
 
     @Override
-    public List<Libro> busquedaPorPatron(String patron) {
+    public List<String> busquedaPorPatron(String patron) {
         return librosRepository.buscarPorPatron(patron);
     }
 
@@ -58,5 +58,7 @@ public class LibroServiceImpl implements LibroService{
     public Page<Libro> busquedaPorTitulo(String titulo, Pageable pageable) {
         return librosRepository.findByTitulo(titulo, pageable);
     }
+
+    //@Param("dato")
 
 }

@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.Collection;
 import java.util.List;
 
 @SpringBootTest
@@ -77,6 +78,17 @@ class ProyectoApplicationTests {
 
 		// Cambia el tipo de retorno a Page<Libro>
 		Page<Libro> librosPage = librosRepository.findByTitulo("1", pageable);
+
+		// Imprime los resultados
+		librosPage.forEach(libro -> System.out.println(libro));
+	}
+
+	@Test
+	void likePrueba2(){
+
+
+		// Cambia el tipo de retorno a Page<Libro>
+		Collection<String> librosPage = librosRepository.buscarPorPatron("1");
 
 		// Imprime los resultados
 		librosPage.forEach(libro -> System.out.println(libro));

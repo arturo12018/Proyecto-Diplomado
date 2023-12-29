@@ -1,7 +1,7 @@
 package dgtic.core.proyecto.controller.usuario;
 
 
-import dgtic.core.proyecto.entity.Administrador;
+import dgtic.core.proyecto.entity.Carrito;
 import dgtic.core.proyecto.entity.Libro;
 import dgtic.core.proyecto.service.Libro.LibroService;
 import dgtic.core.proyecto.util.RenderPagina;
@@ -11,34 +11,44 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
 @Controller
+@SessionAttributes("carrito")
 public class ListaLibrosController {
 
     @Autowired
     LibroService libroService;
 
-/*    @GetMapping("/principal")
-    public String principal(@RequestParam(name="page",defaultValue = "0") int page, Model model){
-        Pageable pagReq= PageRequest.of(page,3);
-        Page<Libro> libros=libroService.findAll(pagReq);
-        RenderPagina<Libro> render=new RenderPagina<>("principal",libros);
-        model.addAttribute("page",render);
-        model.addAttribute("libros",libros);
-        return "principal";
-    }*/
+    @ModelAttribute("carrito")
+    public Carrito initShoppingCart() {
+        return new Carrito();
+    }
 
 
-/*   @GetMapping(value = "buscar-libro/{dato}",produces = "application/json")
-    public @ResponseBody List<Libro> buscarCliente(@PathVariable String dato){
+
+    //--------------Pendiente
+   @GetMapping(value = "buscar-libro/{dato}",produces = "application/json")
+    public @ResponseBody List<String> buscarCliente(@PathVariable String dato){
         return libroService.busquedaPorPatron(dato);
-    }*/
+    }
+
+    @GetMapping("/agregarProductoCarritoMListado/{isbn}")
+    public String agregarCarritoListado(@PathVariable Long isbn,@ModelAttribute("carrito") Carrito carrito, RedirectAttributes flash){
+
+        // Agregar el producto al carrito
+        carrito.setLista(isbn, 1);
+        System.out.println(carrito);
+        flash.addFlashAttribute("success","Se agrego al carrito");
+        return "redirect:/principal";
+    }
+
+
+
+
 
     @GetMapping("/principal")
     public String principal(@RequestParam(name="page", defaultValue = "0") int page, @RequestParam(name="titulo", required = false) String titulo, Model model){

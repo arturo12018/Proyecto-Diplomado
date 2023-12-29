@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head th:replace="plantillas/plantilla :: head"></head>
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDoeRJLrbcF5vqAsqJLyKg6S+mj2JCegn" crossorigin="anonymous">
 <body>
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" th:href="@{/principal}">Libreria</a>
-    <form class="form-inline navbar navbar-expand bg-light">
-        <input type="search"  class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+<nav class="navbar navbar-dark bg-dark p-4">
+    <a class="navbar-brand" th:href="@{/principal}" style="font-size: 24px;">Libreria</a>
+
+    <form class="form-inline navbar navbar-expand bg-dark">
+        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar" oninput="buscarNombre(this.value)">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size: 16px;">Buscar</button>
     </form>
-    <button class="btn btn-primary" type="button">
-        Carrito <span class="badge badge-light">0</span>
+
+    <button class="btn btn-primary ml-2" type="button" style="font-size: 20px;">
+        <i class="fas fa-shopping-cart"></i>
     </button>
 </nav>
+
+
+
+
 <div class="container">
     <h1 class="my-4">Catálogo de productos disponibles en nuestra tienda en línea</h1>
+
+    <div class="alert alert-success" th:if="${success !=null}" th:text=${success}></div>
+
 
     <!-- Mensaje cuando no hay libros -->
     <div class="alert alert-info" th:if="${libros.isEmpty()}">
@@ -29,10 +38,14 @@
                 <div class="card" style="margin-top: 20px;">
                     <img class="card-img-top mx-auto" th:src="@{'/imagenes/'+${cl.imagenPortada}}" th:alt="${cl.titulo}" style="width: 150px; height: 150px; object-fit: cover;">
                     <div class="card-body">
-                        <!-- Añadí la clase "no-underline" al enlace y una clase "hover-color" para el cambio de color al pasar el mouse -->
                         <a href="#" class="card-title h5 no-underline hover-color" th:text="${#strings.abbreviate(cl.titulo, 25)}"></a>
-                        <p class="card-text" th:text="${'Valoración '+cl.valoracion}"></p>
-                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                        <p class="card-text">
+                            Valoración
+                            <span th:each="i: ${#numbers.sequence(1,5)}" th:class="${i le cl.valoracion} ? 'star-filled' : 'star-empty'">★</span>
+                        </p>
+
+
+                        <a th:href="@{/agregarProductoCarritoMListado/{isbn}(isbn=${cl.isbn})}" class="btn btn-primary">Agregar al carrito</a>
                         <p class="card-text h5"><small class="text-muted" th:text="${'Precio: '+cl.precio}"></small></p>
                     </div>
                 </div>
@@ -40,7 +53,7 @@
         </div>
 
         <!-- Paginador -->
-        <div style="margin-top: 100px;">
+        <div style="margin-top: 40px;">
             <nav th:replace="plantillas/pag-nav:: paginador"></nav>
         </div>
     </div>
@@ -61,9 +74,26 @@
     .alert {
         text-align: center;
     }
+
+
+    .star-filled {
+        color: orange;
+    }
+
+    .star-empty {
+        color: gray;  /* Color para estrellas vacías */
+    }
+
+
 </style>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <footer th:replace="plantillas/plantilla :: footer"></footer>
-<!--<script th:replace="/js/autocompletar :: jscliente"></script>-->
+
+<!--<script type="text/javascript" th:fragment="jslibro"></script>-->
+
 </body>
 </html>
