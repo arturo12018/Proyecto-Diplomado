@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -20,14 +20,13 @@ public class InicioController {
         return "inicio";
     }
 
-    @GetMapping("/principal")
-    public String principal(Model model){
-        model.addAttribute("contenido","Inicio");
-        return "principal";
-    }
+
 
     @GetMapping("/adminlogin")
-    public String loginAdmin(){
+    public String loginAdmin(@RequestParam(value = "error", required = false) String error, Model model){
+        if(error != null){
+            model.addAttribute("error", "Correo o contraseña incorrecto");
+        }
         return "adminlogin";
     }
 
@@ -41,6 +40,8 @@ public class InicioController {
     public String sinPermisos(Model model){
         return "admin/sinPermisos";
     }
+
+
 
 
 

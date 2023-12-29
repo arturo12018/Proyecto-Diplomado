@@ -216,6 +216,30 @@ public class LibroController {
 
     }
 
+    @PostMapping(value = "salvar-modificacion")
+    public String modificacionImagen(@RequestParam("imagenarchivo") MultipartFile multipartFile,Model model,
+                          HttpSession session){
+        if(!multipartFile.isEmpty()){
+            String imagenNombre= Archivos.almacenar(multipartFile,archivoRuta);
+            if(imagenNombre!=null){
+                Libro libro=(Libro)session.getAttribute("libro");
+                libro.setImagenPortada(imagenNombre);
+            }
+
+        }
+
+        List<Idioma> idiomasSelect=idiomaRepository.findAll();
+        List<Autores> autoresSelect=autoresRepository.findAll();
+        List<Editorial> editorialSelect=editorialRepository.findAll();
+        model.addAttribute("idiomasSelect",idiomasSelect);
+        model.addAttribute("autoresSelect",autoresSelect);
+        model.addAttribute("editorialSelect",editorialSelect);
+        //model.addAttribute("libro",libro);
+        model.addAttribute("operacion","Modificar libro");
+        return  "admin/libros/modificar-libros";
+
+    }
+
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder){
         SimpleDateFormat format=new SimpleDateFormat("dd/MM/yyyy");

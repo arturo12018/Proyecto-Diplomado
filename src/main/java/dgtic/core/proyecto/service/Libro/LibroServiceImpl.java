@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class LibroServiceImpl implements LibroService{
@@ -44,4 +47,16 @@ public class LibroServiceImpl implements LibroService{
         }
         return false;
     }
+
+    @Override
+    public List<Libro> busquedaPorPatron(String patron) {
+        return librosRepository.buscarPorPatron(patron);
+    }
+
+    @Override
+    @Transactional(readOnly=true)
+    public Page<Libro> busquedaPorTitulo(String titulo, Pageable pageable) {
+        return librosRepository.findByTitulo(titulo, pageable);
+    }
+
 }

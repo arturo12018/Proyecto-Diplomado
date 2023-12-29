@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head th:replace="plantillas/plantilla :: head"></head>
 </head>
 <body>
-    <main class="container text-center">
-        <h1 th:text="${contenido}"></h1>
-    </main>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/principal}">Libreria</a>
+    <form class="form-inline navbar navbar-expand bg-light">
+        <input type="search"  class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+    <button class="btn btn-primary" type="button">
+        Carrito <span class="badge badge-light">0</span>
+    </button>
+</nav>
+<div class="container">
+    <h1 class="my-4">Catálogo de productos disponibles en nuestra tienda en línea</h1>
+
+    <!-- Mensaje cuando no hay libros -->
+    <div class="alert alert-info" th:if="${libros.isEmpty()}">
+        <h4 class="alert-heading">¡Oops!</h4>
+        <p class="mb-0">Lo sentimos, pero actualmente no hay libros disponibles.</p>
+    </div>
+
+    <!-- Contenido de los libros -->
+    <div th:if="${not libros.isEmpty()}">
+        <div class="row">
+            <div class="col-md-2" th:each="cl: ${libros}">
+                <div class="card" style="margin-top: 20px;">
+                    <img class="card-img-top mx-auto" th:src="@{'/imagenes/'+${cl.imagenPortada}}" th:alt="${cl.titulo}" style="width: 150px; height: 150px; object-fit: cover;">
+                    <div class="card-body">
+                        <!-- Añadí la clase "no-underline" al enlace y una clase "hover-color" para el cambio de color al pasar el mouse -->
+                        <a href="#" class="card-title h5 no-underline hover-color" th:text="${#strings.abbreviate(cl.titulo, 25)}"></a>
+                        <p class="card-text" th:text="${'Valoración '+cl.valoracion}"></p>
+                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                        <p class="card-text h5"><small class="text-muted" th:text="${'Precio: '+cl.precio}"></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paginador -->
+        <div style="margin-top: 100px;">
+            <nav th:replace="plantillas/pag-nav:: paginador"></nav>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilo para quitar el subrayado del enlace */
+    .no-underline {
+        text-decoration: none;
+    }
+
+    /* Estilo para cambiar el color del enlace al pasar el mouse */
+    .hover-color:hover {
+        color: #007bff; /* Puedes cambiar este valor al color deseado */
+    }
+
+    /* Estilo para centrar el mensaje de alerta */
+    .alert {
+        text-align: center;
+    }
+</style>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<footer th:replace="plantillas/plantilla :: footer"></footer>
+<!--<script th:replace="/js/autocompletar :: jscliente"></script>-->
 </body>
 </html>

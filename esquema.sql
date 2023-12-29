@@ -180,14 +180,22 @@ INSERT INTO idiomas (Nombre) VALUES
                                  ('Español'),
                                  ('Inglés'),
                                  ('Francés'),
-                                 ('Alemán');
+                                 ('Alemán'),
+                                 ('Italiano'),
+                                 ('Portugués'),
+                                 ('Chino'),
+                                 ('Japonés');
 
 -- Inserta editoriales
 INSERT INTO editoriales (Nombre) VALUES
                                      ('Editorial A'),
                                      ('Editorial B'),
                                      ('Editorial C'),
-                                     ('Editorial D');
+                                     ('Editorial D'),
+                                     ('Editorial E'),
+                                     ('Editorial F'),
+                                     ('Editorial G'),
+                                     ('Editorial H');
 
 
 -- Inserta autores
@@ -196,7 +204,22 @@ INSERT INTO autores (Apellido_Paterno, Apellido_Materno, Nombre) VALUES
                                                                      ('López', NULL, 'María'),
                                                                      ('Martínez', 'Sánchez', 'Carlos'),
                                                                      ('Pérez', 'Gómez', 'Ana'),
-                                                                     ('Hernández', NULL, 'Luisa');
+                                                                     ('Hernández', NULL, 'Luisa'),
+                                                                     ('Rodríguez', 'Fernández', 'Laura'),
+                                                                     ('Díaz', 'Ramírez', 'Miguel'),
+                                                                     ('Gómez', 'López', 'Isabel'),
+                                                                     ('Sánchez', 'Martínez', 'Pedro'),
+                                                                     ('Fernández', 'Gutiérrez', 'Sofía'),
+                                                                     ('García', 'Fernández', 'Javier'),
+                                                                     ('Ramírez', 'González', 'Alejandra'),
+                                                                     ('Díaz', 'Martínez', 'Jorge'),
+                                                                     ('Fernández', 'López', 'Lucía'),
+                                                                     ('Gutiérrez', 'Sánchez', 'Andrés'),
+                                                                     ('López', 'Hernández', 'Valeria'),
+                                                                     ('Martínez', 'Gómez', 'Francisco'),
+                                                                     ('Sánchez', 'Rodríguez', 'Mariana'),
+                                                                     ('Gómez', 'Díaz', 'Alberto'),
+                                                                     ('Hernández', 'Pérez', 'Carmen');
 
 
 -- Insertar libros
@@ -207,8 +230,28 @@ VALUES
     (9789874563211, 'El Alquimista', 'La historia de un joven en busca de su destino personal', 3, 3, '1988-03-01', 1, 'Sin_imagen_disponible.jpg', 4.7, 14.99, 208),
     (9788499891239, '1984', 'Una distopía que presenta un mundo bajo un gobierno totalitario', 4, 4, '1949-06-01', 1, 'Sin_imagen_disponible.jpg', 4.2, 17.99, 328),
     (9788408214332, 'Crónica de una muerte anunciada', 'La historia de un asesinato en un pequeño pueblo', 3, 1, '1981-01-01', 1, 'Sin_imagen_disponible.jpg', 4.6, 16.99, 150),
-    (9786073135307, 'Rayuela', 'Una novela que desafía la estructura tradicional', 1, 2, '1963-05-01', 1, 'Sin_imagen_disponible.jpg', 4.4, 22.99, 536);
-
+    (9786073135307, 'Rayuela', 'Una novela que desafía la estructura tradicional', 1, 2, '1963-05-01', 1, 'Sin_imagen_disponible.jpg', 4.4, 22.99, 536),
+    (9788433960587, 'Cien años de soledad (Edición especial)', 'Edición especial con contenido adicional', 2, 1, '1970-05-01', 2, 'Sin_imagen_disponible.jpg', 4.9, 29.99, 500),
+    (9786075273434, 'La Sombra del Viento', 'Una novela de misterio y literatura', 3, 2, '2001-06-01', 1, 'Sin_imagen_disponible.jpg', 4.6, 21.99, 576),
+    (9788498383665, 'El Hobbit', 'Una historia de aventuras en la Tierra Media', 4, 3, '1937-09-21', 1, 'Sin_imagen_disponible.jpg', 4.8, 18.99, 320),
+    (9788417092018, 'Sapiens: De animales a dioses', 'Breve historia de la humanidad', 1, 4, '2014-02-10', 1, 'Sin_imagen_disponible.jpg', 4.7, 25.99, 464),
+    (9780307476463, 'Los Juegos del Hambre', 'Una trilogía distópica de aventuras', 2, 1, '2008-09-14', 1, 'Sin_imagen_disponible.jpg', 4.5, 27.99, 374),
+    (9780553386790, 'El Silmarillion', 'La historia del mundo de Tolkien', 3, 3, '1977-09-15', 1, 'Sin_imagen_disponible.jpg', 4.4, 23.99, 365),
+    (9788466347979, 'Don Quijote de la Mancha', 'La historia del caballero loco y su fiel escudero', 1, 1, '1605-01-01', 1, 'Sin_imagen_disponible.jpg', 4.5, 14.99, 928),
+    (9788490628377, 'Harry Potter y la piedra filosofal', 'El inicio de las aventuras del joven mago Harry Potter', 2, 2, '1997-06-26', 1, 'Sin_imagen_disponible.jpg', 4.8, 22.99, 320),
+    (9788498383627, 'Cincuenta sombras de Grey', 'Una novela erótica que se convirtió en un fenómeno mundial', 3, 3, '2011-05-25', 1, 'Sin_imagen_disponible.jpg', 3.9, 18.99, 514),
+    (9788408172735, 'El principito', 'Un cuento filosófico y poético sobre la amistad y la vida', 4, 1, '1943-04-06', 1, 'Sin_imagen_disponible.jpg', 4.7, 12.99, 96),
+    (9788420484180, 'Matar a un ruiseñor', 'Un clásico de la literatura que aborda temas de raza e injusticia', 1, 2, '1960-07-11', 1, 'Sin_imagen_disponible.jpg', 4.6, 16.99, 416),
+    (9788420404513, '1984', 'Una novela distópica que reflexiona sobre el poder y la libertad', 2, 1, '1949-06-08', 2, 'Sin_imagen_disponible.jpg', 4.4, 15.99, 352),
+    (9788498387540, 'Origen', 'Una intrigante novela de misterio y conspiraciones', 3, 4, '2017-10-03', 1, 'Sin_imagen_disponible.jpg', 4.5, 26.99, 640),
+    (9788432220832, 'La Odisea', 'Las aventuras del héroe griego Odiseo en su viaje de regreso a casa', 4, 1, '700-01-01', 1, 'Sin_imagen_disponible.jpg', 4.6, 18.99, 416),
+    (9788498388783, 'El señor de los anillos: La comunidad del anillo', 'La primera parte de la épica trilogía de J.R.R. Tolkien', 1, 3, '1954-07-29', 1, 'Sin_imagen_disponible.jpg', 4.9, 24.99, 576),
+    (9788420668562, 'Cien años de soledad (Edición de lujo)', 'Una edición especial con ilustraciones y contenido exclusivo', 2, 1, '1970-05-01', 3, 'Sin_imagen_disponible.jpg', 5.0, 39.99, 500),
+    (9788416213947, 'El Alquimista (Edición conmemorativa)', 'Una edición especial por el 25 aniversario de la obra de Paulo Coelho', 3, 3, '1988-03-01', 2, 'Sin_imagen_disponible.jpg', 4.7, 19.99, 208),
+    (9788427215154, 'Crónica de una muerte anunciada (Edición ilustrada)', 'Una edición con ilustraciones que complementan la historia', 1, 2, '1981-01-01', 2, 'Sin_imagen_disponible.jpg', 4.5, 22.99, 150),
+    (9786073135314, 'Rayuela (Edición anotada)', 'Una edición con notas y anotaciones que enriquecen la lectura', 2, 4, '1963-05-01', 2, 'Sin_imagen_disponible.jpg', 4.4, 27.99, 536),
+    (9788408214349, 'El Código Da Vinci (Edición especial)', 'Una edición especial con contenido adicional', 3, 1, '2003-02-01', 2, 'Sin_imagen_disponible.jpg', 4.6, 29.99, 589),
+    (9789874563228, 'El Alquimista (Edición de bolsillo)', 'Una edición compacta para llevar a todas partes', 4, 2, '1988-03-01', 1, 'Sin_imagen_disponible.jpg', 4.5, 9.99, 208);
 
 
 -- Ejemplos de relación entre autores y libros
@@ -222,7 +265,32 @@ INSERT INTO autor_libro (ID_autor, ISBN) VALUES
                                              (2, 9788408214332),  -- María López con "Crónica de una muerte anunciada"
                                              (3, 9786073135307),  -- Carlos Martínez Sánchez con "Rayuela"
                                              (4, 9786073135307),  -- Ana Pérez Gómez con "Rayuela"
-                                             (5, 9788408160336);  -- Luisa Hernández con "El Código Da Vinci"
+                                             (5, 9788408160336),  -- Luisa Hernández con "El Código Da Vinci"
+                                             (1, 9788433960587),  -- Laura Rodríguez Fernández con "Cien años de soledad (Edición especial)"
+                                             (2, 9786075273434),  -- Miguel Díaz Ramírez con "La Sombra del Viento"
+                                             (3, 9788498383665),  -- Isabel Gómez López con "El Hobbit"
+                                             (4, 9788417092018),  -- Pedro Sánchez Martínez con "Sapiens: De animales a dioses"
+                                             (5, 9780307476463),  -- Sofía Fernández Gutiérrez con "Los Juegos del Hambre"
+                                             (1, 9780553386790),  -- Laura Rodríguez Fernández con "El Silmarillion"
+                                             (2, 9780553386790),  -- Miguel Díaz Ramírez con "El Silmarillion"
+                                             (3, 9780307476463),  -- Isabel Gómez López con "Los Juegos del Hambre"
+                                             (4, 9788433960587),  -- Pedro Sánchez Martínez con "Cien años de soledad (Edición especial)"
+                                             (5, 9786075273434),  -- Sofía Fernández Gutiérrez con "La Sombra del Viento"
+                                             (6, 9788466347979),    -- Lucía Fernández López con "Don Quijote de la Mancha"
+                                             (7, 9788490628377),    -- Francisco Martínez Gómez con "Harry Potter y la piedra filosofal"
+                                             (8, 9788498383627),    -- Mariana Sánchez Rodríguez con "Cincuenta sombras de Grey"
+                                             (9, 9788408172735),    -- Alberto Gómez Díaz con "El principito"
+                                             (10, 9788420484180),   -- Carmen Hernández Pérez con "Matar a un ruiseñor"
+                                             (11, 9788420404513),   -- Nuevo autor con "1984"
+                                             (12, 9788498387540),   -- Nuevo autor con "Origen"
+                                             (13, 9788432220832),   -- Nuevo autor con "La Odisea"
+                                             (14, 9788498388783),   -- Nuevo autor con "El señor de los anillos: La comunidad del anillo"
+                                             (15, 9788420668562),   -- Nuevo autor con "Cien años de soledad (Edición de lujo)"
+                                             (6, 9788416213947),    -- Lucía Fernández López con "El Alquimista (Edición conmemorativa)"
+                                             (7, 9788427215154),    -- Francisco Martínez Gómez con "Crónica de una muerte anunciada (Edición ilustrada)"
+                                             (8, 9786073135314),    -- Mariana Sánchez Rodríguez con "Rayuela (Edición anotada)"
+                                             (9, 9788408214349),    -- Alberto Gómez Díaz con "El Código Da Vinci (Edición especial)"
+                                             (10, 9789874563228);  -- Carmen Hernández Pérez con "El Alquimista (Edición de bolsillo)"
 
 
 -- Insertar usuarios

@@ -8,6 +8,10 @@
 <main>
     <div class="container text-center">
         <h1 th:text="${contenido}"></h1>
+        <div class="container text-center">
+            <br/> <img th:src="@{/imagen/logo.png}" height="500" width="500"/>
+            <p>Libreria</p>
+        </div>
     </div>
 </main>
 <footer th:replace="plantillas/plantilla :: footer"></footer>
