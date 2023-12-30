@@ -96,7 +96,6 @@ public class LibroController {
     public String altaLibro(@Valid @ModelAttribute("libro") Libro libro,
                             BindingResult result, Model model, RedirectAttributes flash) {
 
-        System.out.println("Entre");
 
         if (result.hasErrors()) {
             for (FieldError e : result.getFieldErrors()) {
@@ -165,6 +164,15 @@ public class LibroController {
             return "admin/libros/modificar-libros";
         }
         else{
+            if (libro.getImagenPortada() == null || libro.getImagenPortada().isEmpty()) {
+                libro.setImagenPortada("Sin_imagen_disponible.jpg");
+            } else {
+                String archivo = libro.getImagenPortada();
+                String nuevoArchivo = libro.getTitulo() + "_" + libro.getIsbn() + "_" + archivo;
+                Archivos.renombrar(archivoRuta, archivo, nuevoArchivo);
+                libro.setImagenPortada(nuevoArchivo);
+            }
+
             libroService.guardar(libro);
             flash.addFlashAttribute("success","Se almaceno con éxito");
             return "redirect:/admin/libros/lista-libros";

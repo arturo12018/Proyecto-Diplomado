@@ -7,7 +7,7 @@
     <a class="navbar-brand" th:href="@{/principal}" style="font-size: 24px;">Libreria</a>
 
     <form class="form-inline navbar navbar-expand bg-dark">
-        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar" oninput="buscarNombre(this.value)">
+        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar" >
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size: 16px;">Buscar</button>
     </form>
 
@@ -38,7 +38,7 @@
                 <div class="card" style="margin-top: 20px;">
                     <img class="card-img-top mx-auto" th:src="@{'/imagenes/'+${cl.imagenPortada}}" th:alt="${cl.titulo}" style="width: 150px; height: 150px; object-fit: cover;">
                     <div class="card-body">
-                        <a href="#" class="card-title h5 no-underline hover-color" th:text="${#strings.abbreviate(cl.titulo, 25)}"></a>
+                        <a th:href="@{/detalles-libro/{isbn}(isbn=${cl.isbn})}" class="card-title h5 no-underline hover-color" th:text="${#strings.abbreviate(cl.titulo, 25)}"></a>
                         <p class="card-text">
                             Valoración
                             <span th:each="i: ${#numbers.sequence(1,5)}" th:class="${i le cl.valoracion} ? 'star-filled' : 'star-empty'">★</span>

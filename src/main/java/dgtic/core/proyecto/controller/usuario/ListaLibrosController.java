@@ -36,15 +36,6 @@ public class ListaLibrosController {
         return libroService.busquedaPorPatron(dato);
     }
 
-    @GetMapping("/agregarProductoCarritoMListado/{isbn}")
-    public String agregarCarritoListado(@PathVariable Long isbn,@ModelAttribute("carrito") Carrito carrito, RedirectAttributes flash){
-
-        // Agregar el producto al carrito
-        carrito.setLista(isbn, 1);
-        System.out.println(carrito);
-        flash.addFlashAttribute("success","Se agrego al carrito");
-        return "redirect:/principal";
-    }
 
 
 
@@ -69,6 +60,37 @@ public class ListaLibrosController {
         model.addAttribute("libros", libros);
         return "principal";
     }
+
+    @GetMapping("/agregarProductoCarritoMListado/{isbn}")
+    public String agregarCarritoListado(@PathVariable Long isbn,@ModelAttribute("carrito") Carrito carrito, RedirectAttributes flash){
+
+        // Agregar el producto al carrito
+        carrito.setLista(isbn, 1);
+        System.out.println(carrito);
+        flash.addFlashAttribute("success","Se agrego al carrito");
+        return "redirect:/principal";
+    }
+
+    @GetMapping("/detalles-libro-agregar/{isbn}")
+    public String agregarCarritoDetalle(@PathVariable Long isbn,@ModelAttribute("carrito") Carrito carrito,Model model, RedirectAttributes flash){
+        // Agregar el producto al carrito
+        carrito.setLista(isbn, 1);
+        Libro libro=libroService.buscarPorId(isbn);
+        model.addAttribute("libro", libro);
+        System.out.println(carrito);
+        flash.addFlashAttribute("success","Se agrego al carrito");
+        return "redirect:/detalles-libro/"+isbn;
+    }
+
+
+    @GetMapping("/detalles-libro/{isbn}")
+    public String detalleLibro(@PathVariable Long isbn,Model model){
+        Libro libro=libroService.buscarPorId(isbn);
+        model.addAttribute("libro", libro);
+        return "detalles-libro";
+    }
+
+
 
 
 
