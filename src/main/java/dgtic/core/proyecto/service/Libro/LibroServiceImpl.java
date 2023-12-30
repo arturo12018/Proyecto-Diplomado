@@ -59,6 +59,11 @@ public class LibroServiceImpl implements LibroService{
         return librosRepository.findByTitulo(titulo, pageable);
     }
 
+    @Override
+    public void actualizarValoracionLibro(Long isbn, Float calificacion) {
+        librosRepository.actualizarValoracionLibro(isbn,calificacion);
+    }
+
     //@Param("dato")
 
 }

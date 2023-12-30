@@ -42,6 +42,22 @@
                 <p><strong>Número de paginas:</strong> <span th:text="${libro.numeroPaginas}"></span></p>
                 <p><strong>Precio:</strong> <span th:text="${libro.precio}"></span></p>
                 <a th:href="@{/detalles-libro-agregar/{isbn}(isbn=${libro.isbn})}" class="btn btn-primary">Agregar al carrito</a>
+
+                <form th:action="@{/calificar-libro/{isbn}(isbn=${libro.isbn})}" method="post" class="d-flex">
+                    <div class="form-group mt-3 mr-2">
+                        <label for="calificacion">Calificación:</label>
+                        <select class="form-control" id="calificacion" name="calificacion">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary align-self-end">Calificar</button>
+                </form>
             </div>
         </div>
 
@@ -50,34 +66,6 @@
 
 
 
-<style>
-    /* Estilo para quitar el subrayado del enlace */
-    .no-underline {
-        text-decoration: none;
-    }
-
-    /* Estilo para cambiar el color del enlace al pasar el mouse */
-    .hover-color:hover {
-        color: #007bff; /* Puedes cambiar este valor al color deseado */
-    }
-
-    /* Estilo para centrar el mensaje de alerta */
-    .alert {
-        text-align: center;
-    }
-
-
-    .star-filled {
-        color: orange;
-    }
-
-    .star-empty {
-        color: gray;  /* Color para estrellas vacías */
-    }
-
-
-
-</style>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

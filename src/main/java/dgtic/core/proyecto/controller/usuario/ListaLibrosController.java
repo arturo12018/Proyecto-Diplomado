@@ -1,8 +1,10 @@
 package dgtic.core.proyecto.controller.usuario;
 
 
+import dgtic.core.proyecto.entity.Autores;
 import dgtic.core.proyecto.entity.Carrito;
 import dgtic.core.proyecto.entity.Libro;
+import dgtic.core.proyecto.repository.LibrosRepository;
 import dgtic.core.proyecto.service.Libro.LibroService;
 import dgtic.core.proyecto.util.RenderPagina;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +90,19 @@ public class ListaLibrosController {
         Libro libro=libroService.buscarPorId(isbn);
         model.addAttribute("libro", libro);
         return "detalles-libro";
+    }
+
+
+
+    @PostMapping("/calificar-libro/{isbn}")
+    public String calificarLibro(@PathVariable Long isbn, @ModelAttribute("calificacion") Integer calificacionNueva, Model model, RedirectAttributes flash){
+        Libro libro=libroService.buscarPorId(isbn);
+        Float califFinal=(calificacionNueva+libro.getValoracion())/ 2;
+        libroService.actualizarValoracionLibro(isbn,califFinal);
+        Libro libroActualizado=libroService.buscarPorId(isbn);
+        model.addAttribute("libro", libroActualizado);
+        flash.addFlashAttribute("success","Calificado correctamente");
+        return "redirect:/detalles-libro/"+isbn;
     }
 
 

@@ -20,4 +20,6 @@ public interface LibroService {
     List<String> busquedaPorPatron(String patron);
 
     Page<Libro> busquedaPorTitulo(String titulo,Pageable pageable);
+
+    void actualizarValoracionLibro(Long isbn,Float calificacion);
 }

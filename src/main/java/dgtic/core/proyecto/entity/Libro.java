@@ -68,6 +68,8 @@ public class Libro {
     private Integer numeroPaginas;
 
 
+
+
    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "autor_libro",
