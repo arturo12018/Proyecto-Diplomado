@@ -164,14 +164,17 @@ public class LibroController {
             return "admin/libros/modificar-libros";
         }
         else{
-            if (libro.getImagenPortada() == null || libro.getImagenPortada().isEmpty()) {
-                libro.setImagenPortada("Sin_imagen_disponible.jpg");
-            } else {
-                String archivo = libro.getImagenPortada();
-                String nuevoArchivo = libro.getTitulo() + "_" + libro.getIsbn() + "_" + archivo;
-                Archivos.renombrar(archivoRuta, archivo, nuevoArchivo);
-                libro.setImagenPortada(nuevoArchivo);
-            }
+                Libro libroComp=libroService.buscarPorId(libro.getIsbn());
+
+                //if(!(libro.getImagenPortada().equals("Sin_imagen_disponible.jpg")||libro.getImagenPortada().equals(libro.getImagenPortada()))){
+                  if(!(libro.getImagenPortada().equals(libroComp.getImagenPortada()))){
+                    String archivo = libro.getImagenPortada();
+                    String nuevoArchivo = libro.getTitulo() + "_" + libro.getIsbn() + "_" + archivo;
+                    Archivos.renombrar(archivoRuta, archivo, nuevoArchivo);
+                    libro.setImagenPortada(nuevoArchivo);
+                }
+
+
 
             libroService.guardar(libro);
             flash.addFlashAttribute("success","Se almaceno con éxito");
@@ -188,7 +191,7 @@ public class LibroController {
        model.addAttribute("idiomasSelect",idiomasSelect);
        model.addAttribute("autoresSelect",autoresSelect);
        model.addAttribute("editorialSelect",editorialSelect);
-       model.addAttribute("operacion","Modificar Editorial");
+       model.addAttribute("operacion","Modificar Libro");
         Libro libro = libroService.buscarPorId(id);
         model.addAttribute("anioPublicacion",libro.getAnioPublicacion());
         model.addAttribute("libro", libro);
