@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -59,6 +61,12 @@ public class ListaLibrosController {
             libros = libroService.findAll(pagReq);
             render= new RenderPagina<>("principal", libros);
         }
+
+
+        //IMportarnte compra, muestra el rol
+        /*Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        System.out.println(authentication.getAuthorities());*/
 
 
         model.addAttribute("page", render);
@@ -145,6 +153,9 @@ public class ListaLibrosController {
         flash.addFlashAttribute("success","Se elimino del carrito");
         return "redirect:/carrito";
     }
+
+
+
 
 
 

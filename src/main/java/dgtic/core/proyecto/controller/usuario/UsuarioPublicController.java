@@ -5,6 +5,8 @@ import dgtic.core.proyecto.entity.Usuario;
 import dgtic.core.proyecto.service.usuario.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -43,6 +45,24 @@ public class UsuarioPublicController {
             return "sign-in";
         }
     }
+
+
+    @GetMapping("verificar-login-user")
+    public String verificacionSesion(){
+        //Redireccionamiento del login
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        boolean isUser = authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_USER"));
+        if (isUser) {
+            // El usuario tiene el rol "ROLE_USER"
+            return "redirect:/principal";
+        } else {
+            // El usuario no tiene el rol "ROLE_USER"
+            return "redirect:/login";
+
+        }
+    }
+
 
 
 }
