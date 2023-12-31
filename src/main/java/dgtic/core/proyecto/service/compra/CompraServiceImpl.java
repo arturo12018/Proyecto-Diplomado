@@ -2,6 +2,7 @@ package dgtic.core.proyecto.service.compra;
 
 import dgtic.core.proyecto.entity.Carrito;
 import dgtic.core.proyecto.entity.Compra;
+import dgtic.core.proyecto.entity.CompraLibro;
 import dgtic.core.proyecto.entity.Libro;
 import dgtic.core.proyecto.repository.CompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,10 @@ public class CompraServiceImpl implements CompraService{
 
         };
         return total;
+    }
+
+    @Override
+    public Page<Compra> listadosComprasPorID(Integer id, Pageable pageable) {
+        return compraRepository.findByUsuario_Id(id,pageable);
     }
 }

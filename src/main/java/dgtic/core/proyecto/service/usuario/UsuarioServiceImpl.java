@@ -47,4 +47,12 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setConstrasena(usuarioTemp.getConstrasena());
         usuarioRepository.save(usuario);
     }
+
+    @Override
+    public Integer buscarIdPorCorreo(String correo) {
+        Optional<Usuario> usuario=usuarioRepository.findByCorreo(correo);
+        return usuario.get().getId();
+    }
+
+
 }

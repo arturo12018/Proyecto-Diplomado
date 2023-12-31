@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Admin Login</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<head th:replace="plantillas/plantilla :: head"></head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDoeRJLrbcF5vqAsqJLyKg6S+mj2JCegn" crossorigin="anonymous">
+
+
 <body class="bg-light">
+
+
+<nav class="navbar navbar-dark bg-dark p-4">
+    <a class="navbar-brand" th:href="@{/principal}" style="font-size: 24px;">Libreria</a>
+
+    <form class="form-inline navbar navbar-expand bg-dark">
+        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar" >
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size: 16px;">Buscar</button>
+    </form>
+
+    <!-- Div para los iconos -->
+    <div class="ml-auto d-flex align-items-center">
+        <!-- Icono de cuenta -->
+        <a th:href="@{/user/inicio-user}" class="text-light mr-2" style="font-size: 28px; margin-right: 10px">
+            <i class="fas fa-user-circle"></i>
+        </a>
+
+        <!-- Icono de carrito -->
+        <a th:href="@{/carrito}">
+            <button class="btn btn-primary" type="button" style="font-size: 20px;">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </a>
+    </div>
+
+</nav>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">

@@ -1,10 +1,16 @@
 package dgtic.core.proyecto.controller.usuario;
 
 
+import dgtic.core.proyecto.entity.Compra;
 import dgtic.core.proyecto.entity.Usuario;
+import dgtic.core.proyecto.service.compra.CompraService;
 import dgtic.core.proyecto.service.usuario.UsuarioService;
+import dgtic.core.proyecto.util.RenderPagina;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,6 +21,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
 
 
 @Controller
@@ -23,6 +30,9 @@ public class UsuarioPublicController {
 
     @Autowired
     UsuarioService usuarioService;
+
+    @Autowired
+    CompraService compraService;
 
     @PostMapping("alta-usuario")
     public String altaUsuario(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, Model model, RedirectAttributes flash){
@@ -47,21 +57,31 @@ public class UsuarioPublicController {
     }
 
 
-    @GetMapping("verificar-login-user")
+    /*@GetMapping("verificar-login-user")
     public String verificacionSesion(){
-        //Redireccionamiento del login
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        boolean isUser = authentication.getAuthorities().stream()
-                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_USER"));
-        if (isUser) {
-            // El usuario tiene el rol "ROLE_USER"
-            return "redirect:/principal";
-        } else {
-            // El usuario no tiene el rol "ROLE_USER"
-            return "redirect:/login";
+        return "redirect:/user/inicio-user";
+    }*/
 
-        }
+    @GetMapping("inicio-user")
+    public String inicioUsuario(@RequestParam(name="page",defaultValue = "0") int page, Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Integer id=usuarioService.buscarIdPorCorreo(authentication.getName());
+
+        Pageable pagReq= PageRequest.of(page,10);
+        Page<Compra> compra=compraService.listadosComprasPorID(id,pagReq);
+        RenderPagina<Compra> render=new RenderPagina<>("inicio-user",compra);
+        model.addAttribute("page",render);
+        model.addAttribute("compra",compra);
+
+
+
+
+        System.out.println(id);
+
+        return "user/inicio-user";
     }
+
+
 
 
 

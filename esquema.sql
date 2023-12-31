@@ -295,11 +295,11 @@ INSERT INTO autor_libro (ID_autor, ISBN) VALUES
 
 -- Insertar usuarios
 INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, Correo, Contraseña, Estado_Activo) VALUES
-                                                                                                         ('Juan', 'González', 'Pérez', 'juangonzalez@example.com', 'clave123', 1),
-                                                                                                         ('María', 'López', NULL, 'marialopez@example.com', 'abc456', 1),
-                                                                                                         ('Carlos', 'Martínez', 'Sánchez', 'carlosmartinez@example.com', 'pass789', 0),
-                                                                                                         ('Ana', 'Pérez', 'Gómez', 'anaperez@example.com', 'qwerty', 1),
-                                                                                                         ('Luisa', 'Hernández', NULL, 'luisahernandez@example.com', 'password123', 0);
+                                                                                                         ('Juan', 'González', 'Pérez', 'juangonzalez@example.com', '$2a$10$8/Sxv2fjYi4e7HSv0HWcYu91/ngy7RLcF0ADBC3zRd1tJGGjM4.wq', 1),
+                                                                                                         ('María', 'López', NULL, 'marialopez@example.com', '$2a$10$8/Sxv2fjYi4e7HSv0HWcYu91/ngy7RLcF0ADBC3zRd1tJGGjM4.wq', 1),
+                                                                                                         ('Carlos', 'Martínez', 'Sánchez', 'carlosmartinez@example.com', '$2a$10$8/Sxv2fjYi4e7HSv0HWcYu91/ngy7RLcF0ADBC3zRd1tJGGjM4.wq', 0),
+                                                                                                         ('Ana', 'Pérez', 'Gómez', 'anaperez@example.com', '$2a$10$8/Sxv2fjYi4e7HSv0HWcYu91/ngy7RLcF0ADBC3zRd1tJGGjM4.wq', 1),
+                                                                                                         ('Luisa', 'Hernández', NULL, 'luisahernandez@example.com', '$2a$10$8/Sxv2fjYi4e7HSv0HWcYu91/ngy7RLcF0ADBC3zRd1tJGGjM4.wq', 0);
 
 
 -- Inserts para la tabla Paises

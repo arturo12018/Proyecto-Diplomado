@@ -68,7 +68,7 @@ public class InicioController {
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_USER"));
         if (isUser) {
             // El usuario tiene el rol "ROLE_USER"
-            return "redirect:/principal";
+            return "redirect:/user/inicio-user";
         } else {
             // El usuario no tiene el rol "ROLE_USER"
             return "redirect:/admin/inicio";

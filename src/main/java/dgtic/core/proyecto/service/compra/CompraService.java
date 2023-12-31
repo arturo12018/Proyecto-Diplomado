@@ -1,9 +1,6 @@
 package dgtic.core.proyecto.service.compra;
 
-import dgtic.core.proyecto.entity.Carrito;
-import dgtic.core.proyecto.entity.Compra;
-import dgtic.core.proyecto.entity.Editorial;
-import dgtic.core.proyecto.entity.Libro;
+import dgtic.core.proyecto.entity.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,4 +12,6 @@ public interface CompraService {
     Compra buscarPorId(Integer id);
 
     Float total(Carrito carrito, List<Libro> libroList);
+
+    Page<Compra> listadosComprasPorID(Integer integer, Pageable pageable);
 }

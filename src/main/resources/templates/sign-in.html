@@ -10,15 +10,15 @@
 <nav class="navbar navbar-dark bg-dark p-4">
     <a class="navbar-brand" th:href="@{/principal}" style="font-size: 24px;">Libreria</a>
 
-    <form class="form-inline navbar navbar-expand bg-dark" th:action="@{/principal}">
-        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar">
+    <form class="form-inline navbar navbar-expand bg-dark">
+        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar" >
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size: 16px;">Buscar</button>
     </form>
 
     <!-- Div para los iconos -->
     <div class="ml-auto d-flex align-items-center">
         <!-- Icono de cuenta -->
-        <a th:href="@{/user/verificar-login-user}" class="text-light mr-2" style="font-size: 28px; margin-right: 10px">
+        <a th:href="@{/user/inicio-user}" class="text-light mr-2" style="font-size: 28px; margin-right: 10px">
             <i class="fas fa-user-circle"></i>
         </a>
 

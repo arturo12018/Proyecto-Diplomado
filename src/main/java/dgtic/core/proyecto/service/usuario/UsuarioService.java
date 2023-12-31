@@ -15,4 +15,6 @@ public interface UsuarioService {
     Usuario buscarPorId(Integer id);
 
     void modificar(Usuario usuario);
+
+    Integer buscarIdPorCorreo(String correo);
 }
