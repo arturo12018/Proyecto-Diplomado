@@ -1,6 +1,7 @@
 package dgtic.core.proyecto.controller;
 
 
+import dgtic.core.proyecto.entity.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +40,18 @@ public class InicioController {
     @GetMapping("/admin/sinPermisos")
     public String sinPermisos(Model model){
         return "admin/sinPermisos";
+    }
+
+    @GetMapping("/login")
+    public String loginUser(Model model){
+        return "login";
+    }
+
+    @GetMapping("/sign-in")
+    public String signi(Model model){
+        Usuario usuario=new Usuario();
+        model.addAttribute("usuario",usuario);
+        return "sign-in";
     }
 
 

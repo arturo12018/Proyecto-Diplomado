@@ -22,6 +22,15 @@ public class Carrito {
         }
     }
 
+    public void eliminarProducto(Long idProducto) {
+        // Eliminar el producto del carrito
+        lista.remove(idProducto);
+    }
+
+    public void actualizarLibro(Long isbn, Integer cantidad) {
+        lista.put(isbn, cantidad);
+    }
+
     @Override
     public String toString() {
         return "Carrito{" +

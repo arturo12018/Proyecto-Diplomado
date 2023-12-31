@@ -1,5 +1,6 @@
 package dgtic.core.proyecto.service.Libro;
 
+import dgtic.core.proyecto.entity.Carrito;
 import dgtic.core.proyecto.entity.Libro;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,4 +23,8 @@ public interface LibroService {
     Page<Libro> busquedaPorTitulo(String titulo,Pageable pageable);
 
     void actualizarValoracionLibro(Long isbn,Float calificacion);
+
+    List<Libro> listadoLibro(Carrito carrito);
+
+
 }

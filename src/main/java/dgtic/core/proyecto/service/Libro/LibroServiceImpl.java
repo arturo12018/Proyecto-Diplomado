@@ -1,5 +1,6 @@
 package dgtic.core.proyecto.service.Libro;
 
+import dgtic.core.proyecto.entity.Carrito;
 import dgtic.core.proyecto.entity.Libro;
 import dgtic.core.proyecto.repository.LibrosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -64,6 +66,17 @@ public class LibroServiceImpl implements LibroService{
         librosRepository.actualizarValoracionLibro(isbn,calificacion);
     }
 
-    //@Param("dato")
+    @Override
+    public List<Libro> listadoLibro(Carrito carrito) {
+        List<Libro> libroList=new ArrayList<>();
+        carrito.getLista().forEach((clave, valor) -> {
+            libroList.add(librosRepository.findById(clave).get());
+        });
+
+        return libroList;
+    }
+
+
+
 
 }

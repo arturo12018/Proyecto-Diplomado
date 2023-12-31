@@ -1,11 +1,10 @@
 package dgtic.core.proyecto.controller.usuario;
 
 
-import dgtic.core.proyecto.entity.Autores;
 import dgtic.core.proyecto.entity.Carrito;
 import dgtic.core.proyecto.entity.Libro;
-import dgtic.core.proyecto.repository.LibrosRepository;
 import dgtic.core.proyecto.service.Libro.LibroService;
+import dgtic.core.proyecto.service.compra.CompraService;
 import dgtic.core.proyecto.util.RenderPagina;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
 @SessionAttributes("carrito")
@@ -24,6 +24,9 @@ public class ListaLibrosController {
 
     @Autowired
     LibroService libroService;
+
+    @Autowired
+    CompraService compraService;
 
     @ModelAttribute("carrito")
     public Carrito initShoppingCart() {
@@ -103,6 +106,44 @@ public class ListaLibrosController {
         model.addAttribute("libro", libroActualizado);
         flash.addFlashAttribute("success","Calificado correctamente");
         return "redirect:/detalles-libro/"+isbn;
+    }
+
+
+    @GetMapping("/carrito")
+    public String carrito(Model model,@ModelAttribute("carrito") Carrito carrito){
+
+
+       List<Libro> libroList=libroService.listadoLibro(carrito);
+
+       Float total= compraService.total(carrito,libroList);
+
+
+        model.addAttribute("total", total);
+        model.addAttribute("carrito", carrito);
+        model.addAttribute("libroList", libroList);
+        return "carrito";
+    }
+
+
+    @PostMapping("/actualizar-carrito/{isbn}")
+    public String actualizarCarrito(@PathVariable Long isbn,
+                                    @RequestParam("numeroLib") Integer numeroLib,
+                                    @ModelAttribute("carrito") Carrito carrito) {
+
+        // Tu lógica para actualizar el carrito con el número de libros
+        System.out.println(isbn);
+        System.out.println(numeroLib);
+        carrito.actualizarLibro(isbn, numeroLib);
+
+        return "redirect:/carrito"; // O la vista que desees
+    }
+
+
+    @GetMapping("/eliminar-carrito/{isbn}")
+    public String eliminarProductoCarrito(@PathVariable Long isbn,@ModelAttribute("carrito") Carrito carrito, RedirectAttributes flash){
+        carrito.eliminarProducto(isbn);
+        flash.addFlashAttribute("success","Se elimino del carrito");
+        return "redirect:/carrito";
     }
 
 
