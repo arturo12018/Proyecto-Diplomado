@@ -73,13 +73,10 @@ public class UsuarioPublicController {
         model.addAttribute("page",render);
         model.addAttribute("compra",compra);
 
-
-
-
-        System.out.println(id);
-
         return "user/inicio-user";
     }
+
+
 
 
 
