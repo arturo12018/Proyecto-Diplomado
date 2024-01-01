@@ -93,7 +93,9 @@ public class CompraServiceImpl implements CompraService{
             compraLibroRepository.save(compraLibro);
         }
 
-        EnviarCorreo.enviar(compra1,compraLibroRepository.findById_IdCompra(compra.getId()),correo);
+
+        //Descomentar
+        //EnviarCorreo.enviar(compra1,compraLibroRepository.findById_IdCompra(compra.getId()),correo);
 
 
 

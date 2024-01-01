@@ -20,7 +20,7 @@ import java.util.Properties;
 
 public class EnviarCorreo {
 
-    //Correo
+    //Correo de gmail
     static final String  gmail="";
     //Es de contraseña de aplicacion
     static final String pswd="";
