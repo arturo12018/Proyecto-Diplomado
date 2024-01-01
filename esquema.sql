@@ -154,6 +154,9 @@ CREATE TABLE compra_libro (
 );
 
 
+
+
+
 -- Insters de prueba
 
 -- ROL

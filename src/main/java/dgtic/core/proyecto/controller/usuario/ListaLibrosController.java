@@ -18,14 +18,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
 @SessionAttributes("carrito")
@@ -180,7 +178,7 @@ public class ListaLibrosController {
             meses.add(x);
         }
         return meses;
-    };
+    }
 
 
     //Creacion de listado de años
@@ -222,66 +220,48 @@ public class ListaLibrosController {
     }
 
 
-    @PostMapping("/user/compras/procesar-compra")
-    public String detallesPago(@Valid @ModelAttribute("compra") Compra compra,@ModelAttribute("carrito") Carrito carrito ,BindingResult result, Model model, RedirectAttributes flash){
+    @PostMapping("/user/compras/datos-pago")
+    public String detallesPago(@Valid @ModelAttribute("compra") Compra compra,
+                               @ModelAttribute("carrito") Carrito carrito,
+                               BindingResult result, Model model, RedirectAttributes flash) {
 
 
-
-
-
-        if(result.hasErrors()){
-            for (FieldError e :result.getFieldErrors()) {
+        if (result.hasErrors()) {
+            for (FieldError e : result.getFieldErrors()) {
                 System.out.println(e.getDefaultMessage());
                 System.out.println(e.getCode());
-
-
-
-                List<Libro> libroList=libroService.listadoLibro(carrito);
-
-                compra.setTotal(compraService.total(carrito,libroList));
-
-                List<Estado> estado=estadoRepository.findAll();
-                List<Pais> pais=paisRepostory.findAll();
-
-                List<Integer> meses=meses();
-                List<Integer> yearList =anios();
-
-                model.addAttribute("anios",yearList);
-                model.addAttribute("meses",meses);
-                model.addAttribute("estado",estado);
-                model.addAttribute("pais",pais);
-                model.addAttribute("compra",compra);
-                model.addAttribute("carrito", carrito);
-                model.addAttribute("libroList", libroList);
-
-                return "user/compras/datos-pago";
             }
+
+            List<Libro> libroList = libroService.listadoLibro(carrito);
+
+            compra.setTotal(compraService.total(carrito, libroList));
+
+            List<Estado> estado = estadoRepository.findAll();
+            List<Pais> pais = paisRepostory.findAll();
+
+            List<Integer> meses = meses();
+            List<Integer> yearList = anios();
+
+            model.addAttribute("anios", yearList);
+            model.addAttribute("meses", meses);
+            model.addAttribute("estado", estado);
+            model.addAttribute("pais", pais);
+            model.addAttribute("compra", compra);
+            model.addAttribute("carrito", carrito);
+            model.addAttribute("libroList", libroList);
+            model.addAttribute("operacion", "Error en datos");
+
+            // Return the same view with validation errors
+            return "user/compras/datos-pago";
         }
-        //try{
 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        compraService.guardarCompra(compra, authentication.getName(), carrito);
+        carrito.borrarCarrito();
+        flash.addFlashAttribute("success", "Compra de realizo con éxito");
 
-
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            compraService.guardarCompra(compra,authentication.getName(),carrito);
-            carrito.borrarCarrito();
-
-
-
-
-
-            flash.addFlashAttribute("success","Compra de realizo con éxito");
-            return "redirect:/principal";
-       /* }
-        catch (Exception e){
-            List<Rol> rolsSelct=rolRepository.findAll();
-            model.addAttribute("rolsSelct",rolsSelct);
-            ObjectError er=new ObjectError("Duplicados","Correo Duplicado");
-            result.addError(er);
-            return "admin/administrador/alta-administrador";
-        }*/
-
-
-
+        // Redirect to the desired success view
+        return "redirect:/principal";
     }
 
 

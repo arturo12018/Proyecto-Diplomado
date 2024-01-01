@@ -9,6 +9,7 @@ import dgtic.core.proyecto.repository.CompraRepository;
 import dgtic.core.proyecto.repository.UsuarioRepository;
 import dgtic.core.proyecto.service.Libro.LibroService;
 import dgtic.core.proyecto.service.usuario.UsuarioService;
+import dgtic.core.proyecto.util.EnviarCorreo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -80,7 +81,7 @@ public class CompraServiceImpl implements CompraService{
         compra.setUsuario(usuarioRepository.findByCorreo(correo).get());
 
         //Guarda compra
-        compraRepository.save(compra);
+        Compra compra1= compraRepository.save(compra);
 
         for (Libro libro : libroCompra) {
             CompraLibro compraLibro = new CompraLibro(
@@ -91,6 +92,8 @@ public class CompraServiceImpl implements CompraService{
             );
             compraLibroRepository.save(compraLibro);
         }
+
+        EnviarCorreo.enviar(compra1,compraLibroRepository.findById_IdCompra(compra.getId()),correo);
 
 
 

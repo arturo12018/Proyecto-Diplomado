@@ -3,6 +3,10 @@ package dgtic.core.proyecto;
 import dgtic.core.proyecto.entity.*;
 import dgtic.core.proyecto.repository.*;
 import dgtic.core.proyecto.service.Libro.LibroService;
+import jakarta.mail.Message;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,8 +15,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Collection;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+
+import jakarta.mail.internet.MimeMessage;
 
 @SpringBootTest
 class ProyectoApplicationTests {
@@ -34,6 +41,12 @@ class ProyectoApplicationTests {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+
+	@Autowired
+	private CompraRepository compraRepository;
+
+	@Autowired
+	private CompraLibroRepository compraLibroRepository;
 
 	@Test
 	void contextLoads() {
@@ -93,5 +106,7 @@ class ProyectoApplicationTests {
 		// Imprime los resultados
 		librosPage.forEach(libro -> System.out.println(libro));
 	}
+
+
 
 }

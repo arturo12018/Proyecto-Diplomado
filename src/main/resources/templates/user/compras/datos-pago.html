@@ -65,7 +65,7 @@
     </table>
 
     <div class="card-body">
-        <form th:action="@{/user/compras/procesar-compra}" th:object="${compra}"
+        <form th:action="@{/user/compras/datos-pago}" th:object="${compra}"
               method="post">
             <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
                 Verifique los siguientes errores
@@ -138,7 +138,7 @@
                         <label for="direccion">Dirección</label>
                         <input type="text" class="form-control"
                                id="direccion" name="direccion"
-                               placeholder="Nombre"
+                               placeholder="Dirección"
                                th:field="*{direccion}" required>
                     </div>
                 </div>
