@@ -80,7 +80,7 @@ public class UsuarioController {
             flash.addFlashAttribute("success","Administrador se almaceno con éxito");
             return "redirect:/admin/usuario/lista-usuarios";
         }catch (Exception e){
-            ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
+            ObjectError er=new ObjectError("Duplicados","Correo Duplicado");
             result.addError(er);
             return "admin/usuario/alta-usuario";
         }

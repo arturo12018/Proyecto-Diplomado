@@ -81,7 +81,7 @@ public class AdministradorController {
             catch (Exception e){
                 List<Rol> rolsSelct=rolRepository.findAll();
                 model.addAttribute("rolsSelct",rolsSelct);
-                ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
+                ObjectError er=new ObjectError("Duplicados","Correo Duplicado");
                 result.addError(er);
                 return "admin/administrador/alta-administrador";
             }

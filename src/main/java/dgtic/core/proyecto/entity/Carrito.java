@@ -31,6 +31,11 @@ public class Carrito {
         lista.put(isbn, cantidad);
     }
 
+
+    public void borrarCarrito(){
+        lista=new HashMap<>();
+    }
+
     @Override
     public String toString() {
         return "Carrito{" +

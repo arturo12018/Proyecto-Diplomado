@@ -7,6 +7,7 @@ import dgtic.core.proyecto.repository.PaisRepostory;
 import dgtic.core.proyecto.service.Libro.LibroService;
 import dgtic.core.proyecto.service.compra.CompraService;
 import dgtic.core.proyecto.util.RenderPagina;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +16,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -168,6 +172,28 @@ public class ListaLibrosController {
 
 
 
+    //Creacion de listado de meses
+    private List<Integer> meses(){
+
+        List<Integer> meses=new ArrayList<>();
+        for(int x=1;x<=12;x++){
+            meses.add(x);
+        }
+        return meses;
+    };
+
+
+    //Creacion de listado de años
+    private List<Integer> anios(){
+
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        List<Integer> yearList = new ArrayList<>();
+        for (int i = 0; i <= 20; i++) {
+            yearList.add(currentYear + i);
+        }
+        return yearList;
+    }
+
     @GetMapping("/user/compras/datos-pago")
     public String detallesPago(Model model,@ModelAttribute("carrito") Carrito carrito){
 
@@ -177,32 +203,85 @@ public class ListaLibrosController {
 
         compra.setTotal(compraService.total(carrito,libroList));
 
-        List<Estado> estado=estadoRepository.findAll();
-        List<Pais> pais=paisRepostory.findAll();
+        List<Estado> estadoList=estadoRepository.findAll();
+        List<Pais> paisList=paisRepostory.findAll();
 
-        //Creacion de listado de meses
-        List<Integer> meses=new ArrayList<>();
-        for(int x=1;x<=12;x++){
-            meses.add(x);
-        }
-
-        //Creacion de listado de años
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        List<Integer> yearList = new ArrayList<>();
-        for (int i = 0; i <= 20; i++) {
-            yearList.add(currentYear + i);
-        }
+        List<Integer> meses=meses();
+        List<Integer> yearList =anios();
 
 
 
         model.addAttribute("anios",yearList);
         model.addAttribute("meses",meses);
-        model.addAttribute("estado",estado);
-        model.addAttribute("pais",pais);
+        model.addAttribute("estadoList",estadoList);
+        model.addAttribute("paisList",paisList);
         model.addAttribute("compra",compra);
         model.addAttribute("carrito", carrito);
         model.addAttribute("libroList", libroList);
         return "user/compras/datos-pago";
+    }
+
+
+    @PostMapping("/user/compras/procesar-compra")
+    public String detallesPago(@Valid @ModelAttribute("compra") Compra compra,@ModelAttribute("carrito") Carrito carrito ,BindingResult result, Model model, RedirectAttributes flash){
+
+
+
+
+
+        if(result.hasErrors()){
+            for (FieldError e :result.getFieldErrors()) {
+                System.out.println(e.getDefaultMessage());
+                System.out.println(e.getCode());
+
+
+
+                List<Libro> libroList=libroService.listadoLibro(carrito);
+
+                compra.setTotal(compraService.total(carrito,libroList));
+
+                List<Estado> estado=estadoRepository.findAll();
+                List<Pais> pais=paisRepostory.findAll();
+
+                List<Integer> meses=meses();
+                List<Integer> yearList =anios();
+
+                model.addAttribute("anios",yearList);
+                model.addAttribute("meses",meses);
+                model.addAttribute("estado",estado);
+                model.addAttribute("pais",pais);
+                model.addAttribute("compra",compra);
+                model.addAttribute("carrito", carrito);
+                model.addAttribute("libroList", libroList);
+
+                return "user/compras/datos-pago";
+            }
+        }
+        //try{
+
+
+
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            compraService.guardarCompra(compra,authentication.getName(),carrito);
+            carrito.borrarCarrito();
+
+
+
+
+
+            flash.addFlashAttribute("success","Compra de realizo con éxito");
+            return "redirect:/principal";
+       /* }
+        catch (Exception e){
+            List<Rol> rolsSelct=rolRepository.findAll();
+            model.addAttribute("rolsSelct",rolsSelct);
+            ObjectError er=new ObjectError("Duplicados","Correo Duplicado");
+            result.addError(er);
+            return "admin/administrador/alta-administrador";
+        }*/
+
+
+
     }
 
 

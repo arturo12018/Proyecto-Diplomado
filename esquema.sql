@@ -124,7 +124,7 @@ CREATE TABLE estados (
 
 -- Crear tabla Compras
 CREATE TABLE compras (
-                         ID_usuario INT,
+                         ID_usuario INT NOT NULL ,
                          ID_compra INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
                          Fecha DATETIME NOT NULL DEFAULT NOW(),
                          Total DECIMAL(10,2) NOT NULL CHECK(Total>=0),

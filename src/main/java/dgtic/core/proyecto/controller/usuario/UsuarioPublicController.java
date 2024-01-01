@@ -55,7 +55,7 @@ public class UsuarioPublicController {
             flash.addFlashAttribute("success","Usuario se cero exitosamente");
             return "redirect:/login";
         }catch (Exception e){
-            ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
+            ObjectError er=new ObjectError("Duplicados","Correo Duplicado");
             result.addError(er);
             return "sign-in";
         }

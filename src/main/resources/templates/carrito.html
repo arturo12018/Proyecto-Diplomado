@@ -49,7 +49,15 @@
         <tbody>
         <tr th:each="cl: ${libroList}" class="fila-carrito">
             <td th:text="${cl.isbn}"></td>
-            <td th:text="${cl.titulo}"></td>
+
+            <td>
+                <a th:href="@{/detalles-libro/{isbn}(isbn=${cl.isbn})}" class="card-link">
+                    <span class="card-title" th:text="${#strings.abbreviate(cl.titulo, 25)}"></span>
+                </a>
+            </td>
+
+
+            <!--<td th:text="${cl.titulo}">-->
             <td th:text="${cl.editorial.getNombre()}"></td>
             <td th:text="${cl.precio}"></td>
 
@@ -121,6 +129,7 @@
 
 
 
+
 <script>
     document.querySelectorAll('.form-actualizar-carrito').forEach(function(form) {
         var numeroLibInput = form.querySelector('.numeroLib');
@@ -143,7 +152,29 @@
 
 
 
+<style>
+    /* Estilos para el enlace */
+    .card-link {
+        text-decoration: none; /* Quitar subrayado de los enlaces */
+        color: #333; /* Color del texto del enlace */
+        /* Otros estilos personalizados según sea necesario */
 
+        /* Estilos para el hover */
+        transition: color 0.3s; /* Transición suave del color durante 0.3 segundos */
+    }
+
+    .card-link:hover {
+        color: #ff0000; /* Cambiar el color al pasar el ratón sobre el enlace */
+    }
+
+    /* Estilos para el título dentro del enlace */
+    .card-title {
+        font-size: 16px; /* Tamaño de la fuente del título */
+        /* Otros estilos personalizados según sea necesario */
+    }
+
+
+</style>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

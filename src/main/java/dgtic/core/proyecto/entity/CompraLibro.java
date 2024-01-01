@@ -33,6 +33,12 @@ public class CompraLibro {
     @Column(name = "Precio_unitario")
     private Double precioUnitario;
 
+    public CompraLibro(Compra compra, Libro libro, int cantidad, Double precioUnitario) {
+        this.id=new CompraLibroId(compra.getId(), libro.getIsbn());
+        this.compra = compra;
+        this.libro = libro;
+        this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
 
-
+    }
 }

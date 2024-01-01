@@ -65,7 +65,7 @@
     </table>
 
     <div class="card-body">
-        <form th:action="@{/user/compras/procesarCompra}" th:object="${compra}"
+        <form th:action="@{/user/compras/procesar-compra}" th:object="${compra}"
               method="post">
             <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
                 Verifique los siguientes errores
@@ -114,6 +114,23 @@
                     </div>
                 </div>
 
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pais">Pais</label>
+                        <select class="form-control" th:field="*{pais}" id="pais" name="pais" required="required">
+                            <option th:each="sel : ${paisList}" th:value="${sel.id}" th:text="${sel.nombre}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select class="form-control" th:field="*{estado}" id="estado" name="estado" required="required">
+                            <option th:each="sel : ${estadoList}" th:value="${sel.id}" th:text="${sel.nombre}"></option>
+                        </select>
+                    </div>
+                </div>
 
 
                 <div class="col-md-6">

@@ -53,6 +53,10 @@
                 <p><strong>Edicion:</strong> <span th:text="${libro.edicion}"></span></p>
                 <p><strong>Número de paginas:</strong> <span th:text="${libro.numeroPaginas}"></span></p>
                 <p><strong>Precio:</strong> <span th:text="${libro.precio}"></span></p>
+                <p class="card-text">
+                    Valoración
+                    <span th:each="i: ${#numbers.sequence(1,5)}" th:class="${i le libro.valoracion} ? 'star-filled' : 'star-empty'">★</span>
+                </p>
                 <a th:href="@{/detalles-libro-agregar/{isbn}(isbn=${libro.isbn})}" class="btn btn-primary">Agregar al carrito</a>
 
                 <form th:action="@{/calificar-libro/{isbn}(isbn=${libro.isbn})}" method="post" class="d-flex">
@@ -75,7 +79,33 @@
 
     </div>
 
+    <style>
+        /* Estilo para quitar el subrayado del enlace */
+        .no-underline {
+            text-decoration: none;
+        }
 
+        /* Estilo para cambiar el color del enlace al pasar el mouse */
+        .hover-color:hover {
+            color: #007bff; /* Puedes cambiar este valor al color deseado */
+        }
+
+        /* Estilo para centrar el mensaje de alerta */
+        .alert {
+            text-align: center;
+        }
+
+
+        .star-filled {
+            color: orange;
+        }
+
+        .star-empty {
+            color: gray;  /* Color para estrellas vacías */
+        }
+
+
+    </style>
 
 
 
