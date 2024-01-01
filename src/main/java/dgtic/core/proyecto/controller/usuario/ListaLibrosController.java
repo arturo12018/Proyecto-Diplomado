@@ -30,6 +30,9 @@ public class ListaLibrosController {
     @Autowired
     CompraService compraService;
 
+
+
+
     @ModelAttribute("carrito")
     public Carrito initShoppingCart() {
         return new Carrito();
@@ -156,6 +159,20 @@ public class ListaLibrosController {
 
 
 
+    @GetMapping("/user/compras/datos-pago")
+    public String detallesPago(Model model,@ModelAttribute("carrito") Carrito carrito){
+
+
+        List<Libro> libroList=libroService.listadoLibro(carrito);
+
+        Float total= compraService.total(carrito,libroList);
+
+
+        model.addAttribute("total", total);
+        model.addAttribute("carrito", carrito);
+        model.addAttribute("libroList", libroList);
+        return "user/compras/datos-pago";
+    }
 
 
 

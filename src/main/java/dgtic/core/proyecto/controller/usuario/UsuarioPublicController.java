@@ -1,8 +1,11 @@
 package dgtic.core.proyecto.controller.usuario;
 
 
+import dgtic.core.proyecto.entity.Carrito;
 import dgtic.core.proyecto.entity.Compra;
+import dgtic.core.proyecto.entity.Libro;
 import dgtic.core.proyecto.entity.Usuario;
+import dgtic.core.proyecto.service.Libro.LibroService;
 import dgtic.core.proyecto.service.compra.CompraService;
 import dgtic.core.proyecto.service.usuario.UsuarioService;
 import dgtic.core.proyecto.util.RenderPagina;
@@ -21,6 +24,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -33,6 +37,7 @@ public class UsuarioPublicController {
 
     @Autowired
     CompraService compraService;
+
 
     @PostMapping("alta-usuario")
     public String altaUsuario(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, Model model, RedirectAttributes flash){
@@ -75,7 +80,6 @@ public class UsuarioPublicController {
 
         return "user/inicio-user";
     }
-
 
 
 
