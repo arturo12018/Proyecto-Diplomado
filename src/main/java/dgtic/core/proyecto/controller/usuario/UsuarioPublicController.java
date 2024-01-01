@@ -52,7 +52,7 @@ public class UsuarioPublicController {
         }
         try{
             usuarioService.guardar(usuario);
-            flash.addFlashAttribute("success","Administrador se almaceno con éxito");
+            flash.addFlashAttribute("success","Usuario se cero exitosamente");
             return "redirect:/login";
         }catch (Exception e){
             ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");

@@ -1,8 +1,9 @@
 package dgtic.core.proyecto.controller.usuario;
 
 
-import dgtic.core.proyecto.entity.Carrito;
-import dgtic.core.proyecto.entity.Libro;
+import dgtic.core.proyecto.entity.*;
+import dgtic.core.proyecto.repository.EstadoRepository;
+import dgtic.core.proyecto.repository.PaisRepostory;
 import dgtic.core.proyecto.service.Libro.LibroService;
 import dgtic.core.proyecto.service.compra.CompraService;
 import dgtic.core.proyecto.util.RenderPagina;
@@ -17,6 +18,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -29,6 +32,12 @@ public class ListaLibrosController {
 
     @Autowired
     CompraService compraService;
+
+    @Autowired
+    EstadoRepository estadoRepository;
+
+    @Autowired
+    PaisRepostory paisRepostory;
 
 
 
@@ -162,13 +171,35 @@ public class ListaLibrosController {
     @GetMapping("/user/compras/datos-pago")
     public String detallesPago(Model model,@ModelAttribute("carrito") Carrito carrito){
 
+        Compra compra=new Compra();
 
         List<Libro> libroList=libroService.listadoLibro(carrito);
 
-        Float total= compraService.total(carrito,libroList);
+        compra.setTotal(compraService.total(carrito,libroList));
+
+        List<Estado> estado=estadoRepository.findAll();
+        List<Pais> pais=paisRepostory.findAll();
+
+        //Creacion de listado de meses
+        List<Integer> meses=new ArrayList<>();
+        for(int x=1;x<=12;x++){
+            meses.add(x);
+        }
+
+        //Creacion de listado de años
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        List<Integer> yearList = new ArrayList<>();
+        for (int i = 0; i <= 20; i++) {
+            yearList.add(currentYear + i);
+        }
 
 
-        model.addAttribute("total", total);
+
+        model.addAttribute("anios",yearList);
+        model.addAttribute("meses",meses);
+        model.addAttribute("estado",estado);
+        model.addAttribute("pais",pais);
+        model.addAttribute("compra",compra);
         model.addAttribute("carrito", carrito);
         model.addAttribute("libroList", libroList);
         return "user/compras/datos-pago";
