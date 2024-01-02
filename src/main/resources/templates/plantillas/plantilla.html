@@ -130,14 +130,26 @@
 
 
             </div>
-            <div class="col-lg-3 navbar">
-                <form id="logout" th:action="@{/logout}" method=post>
-                    <button class="btn btn-outline-primary"
-                            onclick="document.getElementById('logout').submit();"
-                            type="submit">Cerrar Sesion
-                    </button>
-                </form>
+
+            <div class="col-lg-2">
+                <div class="row">
+                    <div class="col-lg-6 navbar">
+                        <a class="btn btn-outline-primary" th:href="@{/admin/administrador/cambiar-contrasenia}">Contraseña</a>
+                    </div>
+
+                    <div class="col-lg-6 navbar">
+                        <form id="logout" th:action="@{/logout}" method="post">
+                            <button class="btn btn-outline-primary"
+                                    onclick="document.getElementById('logout').submit();"
+                                    type="submit">Cerrar Sesión
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
+
+
+
         </div>
     </div>
     <div class="alert alert-success" th:if="${success !=null}" th:text=${success}></div>
