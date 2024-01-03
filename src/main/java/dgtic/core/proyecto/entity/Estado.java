@@ -1,5 +1,6 @@
 package dgtic.core.proyecto.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Estado {
 
     @ManyToOne
     @JoinColumn(name = "ID_pais")
+    @JsonBackReference
     private Pais pais;
 
     @Override
