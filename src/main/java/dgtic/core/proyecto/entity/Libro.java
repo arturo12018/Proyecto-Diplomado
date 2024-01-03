@@ -1,6 +1,7 @@
 package dgtic.core.proyecto.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dgtic.core.proyecto.validation.LongDe13Digitos;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
@@ -40,10 +41,12 @@ public class Libro {
 
     @ManyToOne
     @JoinColumn(name = "ID_editorial")
+    @JsonIgnore
     private Editorial editorial;
 
     @ManyToOne
     @JoinColumn(name = "ID_idioma")
+    @JsonIgnore
     private Idioma idioma;
 
     @Column(name = "Anio_publicacion")
@@ -76,6 +79,7 @@ public class Libro {
             joinColumns = @JoinColumn(name = "ISBN"),
             inverseJoinColumns = @JoinColumn(name = "ID_autor")
     )
+   @JsonIgnore
     private List<Autores> autores;
 
     @Override

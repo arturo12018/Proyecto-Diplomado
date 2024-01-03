@@ -65,10 +65,6 @@ public class UsuarioPublicController {
     }
 
 
-    /*@GetMapping("verificar-login-user")
-    public String verificacionSesion(){
-        return "redirect:/user/inicio-user";
-    }*/
 
     @GetMapping("inicio-user")
     public String inicioUsuario(@RequestParam(name="page",defaultValue = "0") int page, Model model){

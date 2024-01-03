@@ -18,7 +18,7 @@ public interface LibroService {
 
     boolean guardarLibro(Libro libro);
 
-    List<String> busquedaPorPatron(String patron);
+    List<Libro> busquedaPorPatron(String patron);
 
     Page<Libro> busquedaPorTitulo(String titulo,Pageable pageable);
 

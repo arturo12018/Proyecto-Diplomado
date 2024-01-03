@@ -51,11 +51,6 @@ public class ListaLibrosController {
 
 
 
-    //--------------Pendiente
-   @GetMapping(value = "buscar-libro/{dato}",produces = "application/json")
-    public @ResponseBody List<String> buscarCliente(@PathVariable String dato){
-        return libroService.busquedaPorPatron(dato);
-    }
 
 
 

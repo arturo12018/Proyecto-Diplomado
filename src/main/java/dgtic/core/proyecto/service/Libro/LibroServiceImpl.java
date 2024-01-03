@@ -51,8 +51,8 @@ public class LibroServiceImpl implements LibroService{
     }
 
     @Override
-    public List<String> busquedaPorPatron(String patron) {
-        return librosRepository.buscarPorPatron(patron);
+    public List<Libro> busquedaPorPatron(String patron) {
+        return librosRepository.findByPatron(patron);
     }
 
     @Override

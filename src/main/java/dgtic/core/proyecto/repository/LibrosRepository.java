@@ -17,8 +17,8 @@ public interface LibrosRepository extends JpaRepository<Libro,Long> {
     @Query("select p from Libro p where p.titulo like %?1%")
     Page<Libro> findByTitulo(String dato, Pageable pageable);
 
-    @Query("select p.titulo from Libro p where p.titulo like %:dato%")
-    List<String> buscarPorPatron(String dato);
+    @Query("select p from Libro p where p.titulo like %?1%")
+    List<Libro> findByPatron(String dato);
 
     @Transactional
     @Modifying
