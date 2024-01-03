@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="plantillas/plantilla :: head"></head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDoeRJLrbcF5vqAsqJLyKg6S+mj2JCegn" crossorigin="anonymous">
+
+<body>
+
+<nav class="navbar navbar-dark bg-dark p-4">
+    <a class="navbar-brand" th:href="@{/principal}" style="font-size: 24px;">Libreria</a>
+
+    <form class="form-inline navbar navbar-expand bg-dark" th:action="@{/principal}">
+        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size: 16px;">Buscar</button>
+    </form>
+
+    <!-- Div para los iconos y cierre de sesión -->
+    <div class="ml-auto d-flex align-items-center">
+        <!-- Icono de cuenta -->
+        <a th:href="@{/user/inicio-user}" class="text-light mr-3" style="font-size: 28px;">
+            <i class="fas fa-user-circle"></i>
+        </a>
+
+        <!-- Icono de carrito -->
+        <a th:href="@{/carrito}">
+            <button class="btn btn-primary mr-3" type="button" style="font-size: 20px; margin-left: 10px; margin-right: 10px;">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </a>
+
+        <div class="col-lg-6 navbar">
+            <a class="btn btn-outline-primary" th:href="@{/user/cambiar-contrasenia}">Contraseña</a>
+        </div>
+
+
+
+        <div class="col-lg-2">
+            <div class="row">
+
+
+                <div class="col-lg-6 navbar">
+                    <form id="logout" th:action="@{/logout}" method="post">
+                        <button class="btn btn-outline-primary"
+                                onclick="document.getElementById('logout').submit();"
+                                type="submit">Cerrar Sesión
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</nav>
+
+<div class="alert alert-success" th:if="${success !=null}" th:text=${success}></div>
+<div class="alert alert-danger" th:if="${error !=null}" th:text=${error}></div>
+
+<div class="container">
+    <main class="container text-center">
+        <div class="card">
+            <h4 class="card-header"><strong>Cambiar Contraseña</strong></h4>
+            <div class="card-body">
+                <form th:action="@{/user/cambiar-contrasenia}" th:object="${contraseniaNueva}" method="post">
+                    <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
+                        Verifique los siguientes errores
+                        <ul>
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="constraniaVieja">Contraseña Actual</label>
+                                <input type="password" class="form-control" id="constraniaVieja" name="constraniaVieja" th:field="*{antigua}" placeholder="Contraseña Actual" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="constraniaNueva">Nueva Contraseña</label>
+                                <input type="password" class="form-control" id="constraniaNueva" name="constraniaNueva" th:field="*{nueva}" placeholder="Nueva Contraseña" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="confirmarContrasena">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
+                                <small class="text-danger" id="passwordError"></small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <br/>
+                            <button type="submit" class="btn btn-primary" id="guardarButton">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var contrasenaInput = document.getElementById("constraniaNueva");
+        var confirmarContrasenaInput = document.getElementById("confirmarContrasena");
+        var passwordError = document.getElementById("passwordError");
+        var guardarButton = document.getElementById("guardarButton");
+
+        function validarContrasenas() {
+            if (contrasenaInput.value !== confirmarContrasenaInput.value) {
+                passwordError.textContent = "Las contraseñas no coinciden";
+                guardarButton.disabled = true;
+                return false;
+            } else {
+                passwordError.textContent = "";
+                guardarButton.disabled = false;
+                return true;
+            }
+        }
+
+        contrasenaInput.addEventListener("input", validarContrasenas);
+        confirmarContrasenaInput.addEventListener("input", validarContrasenas);
+    });
+</script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<footer th:replace="plantillas/plantilla :: footer"></footer>
+
+<!--<script type="text/javascript" th:fragment="jslibro"></script>-->
+
+</body>
+</html>

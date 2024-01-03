@@ -54,5 +54,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuario.get().getId();
     }
 
+    @Override
+    public Usuario buscarPorCorreo(String correo) {
+        Optional<Usuario> usuario=usuarioRepository.findByCorreo(correo);
+        return usuario.get();
+    }
+
 
 }
