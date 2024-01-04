@@ -6,8 +6,9 @@
 <nav class="navbar navbar-dark bg-dark p-4">
     <a class="navbar-brand" th:href="@{/principal}" style="font-size: 24px;">Libreria</a>
 
-    <form class="form-inline navbar navbar-expand bg-dark">
-        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar" >
+    <form class="form-inline navbar navbar-expand bg-dark" th:action="@{/principal}">
+        <input style="width: 300px; font-size: 16px;" type="text" class="form-control mr-sm-2" id="titulo" name="titulo" placeholder="Buscar" autocomplete="off">
+        <ul id="sugerencias"></ul>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size: 16px;">Buscar</button>
     </form>
 
@@ -104,6 +105,28 @@
             color: gray;  /* Color para estrellas vacías */
         }
 
+        .form-inline {
+            position: relative;
+        }
+        #sugerencias {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 300px;
+            background: white;
+            list-style-type: none;
+            padding: 0;
+            border: 1px solid #ccc;
+            display: none; /* Oculta la lista por defecto */
+            z-index: 9999; /* Asegura que la lista esté encima de todos los demás elementos */
+        }
+        #sugerencias li {
+            padding: 10px;
+        }
+        #sugerencias li:hover {
+            background-color: #ccc; /* Cambia el color de fondo cuando se pasa el ratón por encima */
+            cursor: pointer;
+        }
 
     </style>
 
@@ -112,6 +135,62 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#titulo').on('keyup', function(){
+                var query = $(this).val();
+                if(query != ''){
+                    $.ajax({
+                        url: "/buscar-libro/"+query,
+                        method: "GET",
+                        success: function(data){
+                            // Vacía la lista de sugerencias existente
+                            $('#sugerencias').empty();
+
+                            // Crea un objeto para almacenar los títulos ya añadidos
+                            var titulosAgregados = {};
+
+                            // Recorre los datos recibidos
+                            var count = 0;
+                            $.each(data, function(key, value){
+                                // Comprueba si el título ya ha sido añadido
+                                if(!titulosAgregados[value.titulo] && count < 7){
+                                    // Si no ha sido añadido, añádelo a la lista de sugerencias
+                                    $('#sugerencias').append('<li>' + value.titulo + '</li>');
+
+                                    // Marca el título como añadido
+                                    titulosAgregados[value.titulo] = true;
+
+                                    // Incrementa el contador
+                                    count++;
+                                }
+                            });
+
+                            // Muestra la lista de sugerencias
+                            $('#sugerencias').show();
+
+                            // Redirige a /principal?titulo={titulo} cuando se selecciona una sugerencia
+                            $('#sugerencias li').on('click', function(){
+                                window.location.href = '/principal?titulo=' + $(this).text();
+                            });
+                        }
+                    });
+                } else {
+                    // Si la consulta está vacía, también vacía la lista de sugerencias
+                    $('#sugerencias').empty();
+
+                    // Oculta la lista de sugerencias
+                    $('#sugerencias').hide();
+                }
+            });
+        });
+
+
+
+
+
+    </script>
 
 <footer th:replace="plantillas/plantilla :: footer"></footer>
 
