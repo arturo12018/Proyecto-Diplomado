@@ -253,7 +253,7 @@ public class ListaLibrosController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         compraService.guardarCompra(compra, authentication.getName(), carrito);
         carrito.borrarCarrito();
-        flash.addFlashAttribute("success", "Compra de realizo con éxito");
+        flash.addFlashAttribute("success", "Compra de realizo con éxito, fue enviado a su correo el ticket");
 
         // Redirect to the desired success view
         return "redirect:/principal";

@@ -71,7 +71,7 @@ public class LibroController {
             return "redirect:/admin/libros/lista-libros";
         }
         catch (Exception e){
-            flash.addFlashAttribute("warning","Error al borrar libro");
+            flash.addFlashAttribute("warning","Error al borrar libro: Poque ya tiene compras");
             return "redirect:/admin/libros/lista-libros";
         }
 

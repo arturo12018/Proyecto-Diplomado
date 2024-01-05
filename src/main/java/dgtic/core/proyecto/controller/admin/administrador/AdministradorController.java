@@ -59,7 +59,7 @@ public class AdministradorController {
     @GetMapping("borrar-administrador/{id}")
     public String borrarAdmin(@PathVariable("id") Integer id, Model model, RedirectAttributes flash){
         administradorService.borrar(id);
-        flash.addFlashAttribute("success","Cliente se borro bien");
+        flash.addFlashAttribute("success","Administrador se borro bien");
         return "redirect:/admin/administrador/lista-administrador";
     }
 

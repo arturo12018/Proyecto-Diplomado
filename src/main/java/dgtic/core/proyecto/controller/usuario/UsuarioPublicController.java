@@ -55,7 +55,7 @@ public class UsuarioPublicController {
         }
         try{
             usuarioService.guardar(usuario);
-            flash.addFlashAttribute("success","Usuario se cero exitosamente");
+            flash.addFlashAttribute("success","Usuario se creo exitosamente");
             return "redirect:/login";
         }catch (Exception e){
             ObjectError er=new ObjectError("Duplicados","Correo Duplicado");

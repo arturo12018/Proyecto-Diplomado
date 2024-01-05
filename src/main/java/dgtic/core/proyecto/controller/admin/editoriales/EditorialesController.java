@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -55,9 +56,17 @@ public class EditorialesController {
                 return "admin/editoriales/alta-editorial";
             }
         }
-        editorialesService.guardar(editorial);
-        flash.addFlashAttribute("success","Autor se almaceno con éxito");
-        return "redirect:/admin/editoriales/lista-editoriales";
+        try{
+            editorialesService.guardar(editorial);
+            flash.addFlashAttribute("success","Autor se almaceno con éxito");
+            return "redirect:/admin/editoriales/lista-editoriales";
+        }
+        catch (Exception e){
+            ObjectError er=new ObjectError("Duplicados","Libreria Existente");
+            result.addError(er);
+            return "admin/editoriales/alta-editorial";
+        }
+
     }
 
    @GetMapping("modificar-editorial/{id}")

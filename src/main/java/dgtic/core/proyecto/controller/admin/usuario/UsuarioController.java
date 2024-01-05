@@ -51,7 +51,7 @@ public class UsuarioController {
             flash.addFlashAttribute("success","Cliente se borro bien");
             return "redirect:/admin/usuario/lista-usuarios";
         }catch (Exception e){
-            flash.addFlashAttribute("warning","Error al borrar cliente");
+            flash.addFlashAttribute("warning","Error al borrar cliente: Tiene compras realizadas");
             return "redirect:/admin/usuario/lista-usuarios";
         }
 
