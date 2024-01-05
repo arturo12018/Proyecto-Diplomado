@@ -31,12 +31,21 @@ public class InicioController {
 
 
     @GetMapping("/login")
-    public String loginAdmin(@RequestParam(value = "error", required = false) String error, Model model){
-        if(error != null){
+    public String loginAdmin(@RequestParam(value = "error", required = false) String error,
+                             @RequestParam(value = "logout", required = false) String logout,
+                             Model model) {
+        if (error != null) {
             model.addAttribute("error", "Correo o contraseña incorrecto");
         }
+        if (logout != null) {
+            model.addAttribute("success", "¡Se cerró la sesión correctamente!");
+        }
+
         return "login";
     }
+
+
+
 
     @GetMapping("/admin/inicio")
     public String inicioAdmin(Model model){
