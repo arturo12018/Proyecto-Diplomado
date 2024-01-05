@@ -229,16 +229,39 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+<!--<script>
     $(document).ready(function() {
         // Establece el valor del selector de país a 1 al cargar la página
         $('#pais').val(1).change();
     });
-</script>
+</script>-->
 
 
 
 <script>
+    $(document).ready(function() {
+        // Establece el valor del selector de país a 1 al cargar la página
+        var initialPaisId = 1;
+        $('#pais').val(initialPaisId).change();
+
+        // Obtiene los estados correspondientes al país inicial y selecciona el primero
+        $.ajax({
+            url: '/listado-estados/' + initialPaisId,
+            type: 'GET',
+            success: function(data) {
+                var $estado = $('#estado');
+                $estado.empty();
+                $.each(data, function(index, value) {
+                    $estado.append('<option value="' + value.id + '">' + value.nombre + '</option>');
+                });
+
+                // Establece el valor del selector de estado al primer estado disponible
+                var initialEstadoId = data.length > 0 ? data[0].id : null;
+                $estado.val(initialEstadoId);
+            }
+        });
+    });
+
     $(document).ready(function() {
         $('#pais').change(function() {
             var paisId = $(this).val();
@@ -255,6 +278,7 @@
             });
         });
     });
+
 </script>
 
 
