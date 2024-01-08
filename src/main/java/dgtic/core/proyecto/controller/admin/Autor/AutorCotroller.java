@@ -67,7 +67,7 @@ public class AutorCotroller {
     public String modificarAutores(@PathVariable("id")Integer id,Model model){
         Autores autores=autoresService.buscarPorId(id);
         model.addAttribute("autores",autores);
-        model.addAttribute("operacion","Modificar Usuario");
+        model.addAttribute("operacion","Modificar Autor");
         return "admin/autores/alta-autores";
     }
 

@@ -58,11 +58,11 @@ public class EditorialesController {
         }
         try{
             editorialesService.guardar(editorial);
-            flash.addFlashAttribute("success","Autor se almaceno con éxito");
+            flash.addFlashAttribute("success","Editorial se almaceno con éxito");
             return "redirect:/admin/editoriales/lista-editoriales";
         }
         catch (Exception e){
-            ObjectError er=new ObjectError("Duplicados","Libreria Existente");
+            ObjectError er=new ObjectError("Duplicados","Editorial Existente");
             result.addError(er);
             return "admin/editoriales/alta-editorial";
         }

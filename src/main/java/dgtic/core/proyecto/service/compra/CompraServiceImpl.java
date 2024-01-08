@@ -95,7 +95,7 @@ public class CompraServiceImpl implements CompraService{
 
 
         //Descomentar
-        //EnviarCorreo.enviar(compra1,compraLibroRepository.findById_IdCompra(compra.getId()),correo);
+        EnviarCorreo.enviar(compra1,compraLibroRepository.findById_IdCompra(compra.getId()),correo);
 
 
 

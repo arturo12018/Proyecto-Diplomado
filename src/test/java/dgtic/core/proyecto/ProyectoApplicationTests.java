@@ -96,16 +96,7 @@ class ProyectoApplicationTests {
 		librosPage.forEach(libro -> System.out.println(libro));
 	}
 
-	@Test
-	void likePrueba2(){
 
-
-		// Cambia el tipo de retorno a Page<Libro>
-		Collection<String> librosPage = librosRepository.buscarPorPatron("1");
-
-		// Imprime los resultados
-		librosPage.forEach(libro -> System.out.println(libro));
-	}
 
 
 

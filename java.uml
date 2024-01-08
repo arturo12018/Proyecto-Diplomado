@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>E:/Documentos/Arturo/Diplomado Java/Modulo 10/proyecto/src/main/java</OriginalElement>
+  <nodes>
+    <node x="4232.502155172413" y="1436.5">dgtic.core.proyecto.util.RenderPagina</node>
+    <node x="7786.583365166712" y="1337.6389112204035">dgtic.core.proyecto.controller.usuario.compras.ComprasUserController</node>
+    <node x="2076.6652298850568" y="2176.0">dgtic.core.proyecto.controller.InicioController</node>
+    <node x="-4.5869252873571895" y="2188.0">dgtic.core.proyecto.service.administrador.AdministradorServiceImpl</node>
+    <node x="3764.1652298850568" y="2188.0">dgtic.core.proyecto.service.autores.AutoresServiceImpl</node>
+    <node x="-128.0" y="1520.5">dgtic.core.proyecto.service.rol.RolService</node>
+    <node x="3276.1652298850568" y="2200.0">dgtic.core.proyecto.controller.admin.Autor.AutorCotroller</node>
+    <node x="7288.002155172413" y="2140.0">dgtic.core.proyecto.service.Libro.LibroServiceImpl</node>
+    <node x="1503.0" y="2488.0">dgtic.core.proyecto.validation.LongDe13DigitosValidador</node>
+    <node x="2854.749999999999" y="1508.5">dgtic.core.proyecto.entity.ContraseniaNueva</node>
+    <node x="8790.413074712644" y="1520.5">dgtic.core.proyecto.repository.CompraRepository</node>
+    <node x="956.1249999999991" y="924.0">dgtic.core.proyecto.entity.Rol</node>
+    <node x="7096.288074712643" y="1496.5">dgtic.core.proyecto.repository.LibrosRepository</node>
+    <node x="1709.374999999999" y="390.0">dgtic.core.proyecto.entity.Idioma</node>
+    <node x="3589.502155172413" y="1520.5">dgtic.core.proyecto.service.idioma.IdiomaService</node>
+    <node x="5003.27878927697" y="2197.430369484246">dgtic.core.proyecto.controller.admin.usuario.UsuarioController</node>
+    <node x="3110.1652298850568" y="792.0">dgtic.core.proyecto.entity.Libro</node>
+    <node x="5797.788074712643" y="1520.5">dgtic.core.proyecto.repository.EstadoRepository</node>
+    <node x="365.9999999999991" y="1520.5">dgtic.core.proyecto.repository.AdministradorRepository</node>
+    <node x="7007.002155172413" y="2164.0">dgtic.core.proyecto.service.usuario.UsuarioServiceImpl</node>
+    <node x="1234.624999999999" y="1472.5">dgtic.core.proyecto.service.editorial.EditorialesService</node>
+    <node x="51.99999999999909" y="1472.5">dgtic.core.proyecto.service.administrador.AdministradorService</node>
+    <node x="906.6249999999991" y="1304.0">dgtic.core.proyecto.entity.Administrador</node>
+    <node x="1166.0" y="2488.0">dgtic.core.proyecto.util.Archivos</node>
+    <node x="9198.403017241379" y="1424.0">dgtic.core.proyecto.entity.CompraLibro</node>
+    <node x="8467.913074712644" y="1520.5">dgtic.core.proyecto.repository.UsuarioRepository</node>
+    <node x="562.4130747126428" y="2152.0">dgtic.core.proyecto.controller.admin.administrador.AdministradorController</node>
+    <node x="7434.288074712643" y="1520.5">dgtic.core.proyecto.repository.CompraLibroRepository</node>
+    <node x="6671.288074712643" y="1472.5">dgtic.core.proyecto.service.compra.CompraService</node>
+    <node x="5797.788074712643" y="2076.570133971343">dgtic.core.proyecto.controller.usuario.ListaLibrosController</node>
+    <node x="1357.0380747126428" y="2200.0">dgtic.core.proyecto.controller.admin.editoriales.EditorialesController</node>
+    <node x="5513.2825651938865" y="2224.0">dgtic.core.proyecto.controller.admin.compras.ComprasController</node>
+    <node x="6462.216150866151" y="2200.198417063204">dgtic.core.proyecto.repository.PaisRepostory</node>
+    <node x="362.04022988505676" y="2236.0">dgtic.core.proyecto.service.rol.RolServiceImpl</node>
+    <node x="302.0" y="2488.0">dgtic.core.proyecto.security.SecurityConfig</node>
+    <node x="3790.502155172413" y="1538.0">dgtic.core.proyecto.repository.AutoresRepository</node>
+    <node x="5353.262212643677" y="246.0">dgtic.core.proyecto.entity.Usuario</node>
+    <node x="9198.403017241379" y="924.0">dgtic.core.proyecto.entity.CompraLibroId</node>
+    <node x="8431.002155172413" y="2188.0">dgtic.core.proyecto.service.compra.CompraServiceImpl</node>
+    <node x="1080.0380747126428" y="2188.0">dgtic.core.proyecto.service.editorial.EditorialesServiceImpl</node>
+    <node x="5345.762212643677" y="-14.0">dgtic.core.proyecto.entity.Estado</node>
+    <node x="2943.7902298850568" y="2236.0">dgtic.core.proyecto.service.idioma.IdiomaServiceImpl</node>
+    <node x="5335.788074712643" y="1448.5">dgtic.core.proyecto.service.usuario.UsuarioService</node>
+    <node x="2465.7902298850568" y="2140.0">dgtic.core.proyecto.controller.admin.Libro.LibroController</node>
+    <node x="4276.752155172413" y="972.5">dgtic.core.proyecto.util.PageItem</node>
+    <node x="6088.788074712643" y="1424.5">dgtic.core.proyecto.service.Libro.LibroService</node>
+    <node x="1909.0" y="2488.0">dgtic.core.proyecto.util.EnviarCorreo</node>
+    <node x="5031.124999999999" y="1460.0">dgtic.core.proyecto.entity.Carrito</node>
+    <node x="6411.925994446499" y="1299.440284525913">dgtic.core.proyecto.controller.busqueda.Busqueda</node>
+    <node x="694.4791940458355" y="1783.1634268997755">dgtic.core.proyecto.repository.RolRepository</node>
+    <node x="4003.502155172413" y="1424.0">dgtic.core.proyecto.entity.Autores</node>
+    <node x="3385.502155172413" y="1538.0">dgtic.core.proyecto.repository.IdiomaRepository</node>
+    <node x="1480.374999999999" y="390.0">dgtic.core.proyecto.entity.Editorial</node>
+    <node x="2300.0" y="2488.0">dgtic.core.proyecto.ProyectoApplication</node>
+    <node x="902.0" y="2488.0">dgtic.core.proyecto.validation.LongDe13Digitos</node>
+    <node x="1097.7166362589028" y="1880.8859117479376">dgtic.core.proyecto.repository.EditorialRepository</node>
+    <node x="4250.696181879647" y="2221.430369484246">dgtic.core.proyecto.controller.usuario.UsuarioPublicController</node>
+    <node x="4507.249999999999" y="1472.5">dgtic.core.proyecto.service.autores.AutoresService</node>
+    <node x="-128.0" y="2488.0">dgtic.core.proyecto.util.ConfigMVC</node>
+    <node x="5124.262212643677" y="378.0">dgtic.core.proyecto.entity.Pais</node>
+    <node x="5269.012212643677" y="816.0">dgtic.core.proyecto.entity.Compra</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="dgtic.core.proyecto.controller.InicioController" target="dgtic.core.proyecto.entity.Usuario" relationship="CREATE">
+      <point x="74.25" y="-91.5" />
+      <point x="2299.4152298850568" y="1841.0" />
+      <point x="2034.374999999999" y="1841.0" />
+      <point x="2034.374999999999" y="705.9954688997" />
+      <point x="3502.2902298850568" y="705.9954688997" />
+      <point x="3502.2902298850568" y="790.2890946303828" />
+      <point x="5430.262212643677" y="790.2890946303828" />
+      <point x="-77.0" y="236.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.autores.AutoresServiceImpl" target="dgtic.core.proyecto.service.autores.AutoresService" relationship="REALIZATION">
+      <point x="64.25" y="-79.5" />
+      <point x="3956.9152298850568" y="2001.0" />
+      <point x="4699.999999999999" y="2001.0" />
+      <point x="64.25" y="79.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.ListaLibrosController" target="dgtic.core.proyecto.entity.Carrito" relationship="CREATE">
+      <point x="-136.4759015418631" y="-171.08698730581227" />
+      <point x="5891.31217317078" y="2063.0695840935273" />
+      <point x="5195.985433058561" y="2063.0695840935273" />
+      <point x="5195.985433058561" y="1901.0" />
+      <point x="5162.124999999999" y="1901.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Compra" target="dgtic.core.proyecto.entity.Usuario" relationship="TO_ONE">
+      <point x="133.98221783593" y="-185.281670878245" />
+      <point x="5540.494430479607" y="740.0" />
+      <point x="5584.262212643677" y="740.0" />
+      <point x="77.0" y="236.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Estado" target="dgtic.core.proyecto.entity.Pais" relationship="TO_ONE">
+      <point x="-87.57881519102011" y="91.6168525544507" />
+      <point x="5362.683397452657" y="220.0" />
+      <point x="5182.915514527359" y="220.0" />
+      <point x="-45.846698116318294" y="-105.94277497631651" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.administrador.AdministradorController" target="dgtic.core.proyecto.repository.AdministradorRepository" relationship="TO_ONE">
+      <point x="-194.58974510221424" y="-121.8759962806439" />
+      <point x="599.3233296104286" y="2031.0" />
+      <point x="607.0382626247572" y="2031.0" />
+      <point x="72.03826262475809" y="33.00553801147794" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.compras.ComprasController" target="dgtic.core.proyecto.repository.CompraLibroRepository" relationship="TO_ONE">
+      <point x="-25.681131320478926" y="-40.53754862474352" />
+      <point x="5627.101433873408" y="2143.3150044081412" />
+      <point x="5615.999938712455" y="2143.3150044081412" />
+      <point x="5615.999938712455" y="2028.4821469432559" />
+      <point x="7534.572485608221" y="2028.4821469432559" />
+      <point x="7534.572485608221" y="1712.7766341045572" />
+      <point x="7475.264685149547" y="1712.7766341045572" />
+      <point x="-129.5233895630954" y="29.849634418475034" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.compras.ComprasController" target="dgtic.core.proyecto.service.compra.CompraService" relationship="TO_ONE">
+      <point x="77.74126804237949" y="-30.611064655345217" />
+      <point x="5730.523833236266" y="2071.0" />
+      <point x="5773.290229885057" y="2071.0" />
+      <point x="5773.290229885057" y="1971.0" />
+      <point x="6289.755836592676" y="1971.0" />
+      <point x="6289.755836592676" y="1810.0051542059066" />
+      <point x="6970.996795694004" y="1810.0051542059066" />
+      <point x="97.20872098136078" y="81.3211837102956" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.Libro.LibroServiceImpl" target="dgtic.core.proyecto.service.Libro.LibroService" relationship="REALIZATION">
+      <point x="-90.5" y="-127.5" />
+      <point x="7378.502155172413" y="1881.0" />
+      <point x="6360.288074712643" y="1881.0" />
+      <point x="90.5" y="127.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.compra.CompraServiceImpl" target="dgtic.core.proyecto.entity.CompraLibro" relationship="CREATE">
+      <point x="135.0" y="-79.5" />
+      <point x="8768.502155172413" y="2071.0" />
+      <point x="9302.903017241379" y="2071.0" />
+      <point x="0.0" y="128.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.ListaLibrosController" target="dgtic.core.proyecto.service.compra.CompraService" relationship="TO_ONE">
+      <point x="115.0" y="-175.5" />
+      <point x="6142.788074712643" y="1981.0" />
+      <point x="6256.153017241379" y="1981.0" />
+      <point x="6256.153017241379" y="1841.0" />
+      <point x="6845.36339762956" y="1841.0" />
+      <point x="-28.424677083083225" y="79.67533133390566" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.compra.CompraServiceImpl" target="dgtic.core.proyecto.repository.UsuarioRepository" relationship="TO_ONE">
+      <point x="17.34004013230333" y="-79.13966640378703" />
+      <point x="8650.842195304716" y="2083.343892822926" />
+      <point x="8649.599059742744" y="2083.343892822926" />
+      <point x="8649.599059742744" y="1947.0803289470182" />
+      <point x="8654.898283781155" y="1947.0803289470182" />
+      <point x="37.48520906851081" y="31.780138962373712" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.rol.RolServiceImpl" target="dgtic.core.proyecto.repository.RolRepository" relationship="TO_ONE">
+      <point x="41.0" y="-31.5" />
+      <point x="485.04022988505676" y="2061.0" />
+      <point x="712.4756804872479" y="2061.0" />
+      <point x="-60.50351355858754" y="15.844124934058073" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.UsuarioPublicController" target="dgtic.core.proyecto.entity.ContraseniaNueva" relationship="CREATE">
+      <point x="-116.25" y="-67.5" />
+      <point x="4366.946181879647" y="2071.0" />
+      <point x="3887.2902298850568" y="2071.0" />
+      <point x="3887.2902298850568" y="1861.0" />
+      <point x="2991.101703755328" y="1861.0" />
+      <point x="39.3517037553288" y="43.332386084661266" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.administrador.AdministradorController" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="80.72351539643603" y="-115.50305137730356" />
+      <point x="874.6365901090788" y="2082.143792131808" />
+      <point x="1812.2820103206159" y="2082.143792131808" />
+      <point x="1812.2820103206159" y="1947.0727771131847" />
+      <point x="4342.1306734035425" y="1947.0727771131847" />
+      <point x="10.62851823112942" y="114.6851462323375" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Libro.LibroController" target="dgtic.core.proyecto.repository.AutoresRepository" relationship="TO_ONE">
+      <point x="220.13062477414314" y="-112.16156672190527" />
+      <point x="2914.9208546592" y="1911.0" />
+      <point x="3823.74866983471" y="1911.0" />
+      <point x="-63.25348533770284" y="10.99450122184544" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.administrador.AdministradorController" target="dgtic.core.proyecto.entity.Administrador" relationship="CREATE">
+      <point x="171.03022810924642" y="-107.24228672046684" />
+      <point x="964.9433028218892" y="2018.7634743821504" />
+      <point x="962.0856769568622" y="2018.7634743821504" />
+      <point x="962.0856769568622" y="1861.0" />
+      <point x="1060.624999999999" y="1861.0" />
+      <point x="0.0" y="248.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.usuario.UsuarioServiceImpl" target="dgtic.core.proyecto.service.usuario.UsuarioService" relationship="REALIZATION">
+      <point x="-65.25" y="-103.5" />
+      <point x="7072.252155172413" y="1784.633093700544" />
+      <point x="5531.538074712643" y="1784.633093700544" />
+      <point x="65.25" y="103.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Autores" target="dgtic.core.proyecto.entity.Libro" relationship="TO_MANY">
+      <point x="-8.535956143827207" y="-129.40654481555453" />
+      <point x="4099.466199028586" y="1282.0" />
+      <point x="3296.5344085089455" y="1282.0" />
+      <point x="81.86917862388873" y="224.48532904568265" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.compra.CompraServiceImpl" target="dgtic.core.proyecto.repository.CompraRepository" relationship="TO_ONE">
+      <point x="84.51928192458763" y="-73.11505850774392" />
+      <point x="8718.021437097" y="2129.5" />
+      <point x="8718.021437097002" y="2129.5" />
+      <point x="8718.021437097002" y="1894.9146364970927" />
+      <point x="8976.913074712644" y="1894.9146364970927" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.idioma.IdiomaServiceImpl" target="dgtic.core.proyecto.repository.IdiomaRepository" relationship="TO_ONE">
+      <point x="-47.75" y="-31.5" />
+      <point x="2991.5402298850568" y="1891.0" />
+      <point x="3477.502155172413" y="1891.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Libro" target="dgtic.core.proyecto.entity.Autores" relationship="TO_MANY">
+      <point x="11.207249930873331" y="220.97417730938378" />
+      <point x="3225.87247981593" y="1370.0090622006005" />
+      <point x="4020.5667791917385" y="1370.0090622006005" />
+      <point x="4020.5667791917385" y="1340.5411517240732" />
+      <point x="4039.425504337875" y="1340.5411517240732" />
+      <point x="-68.57665083453821" y="-132.9176965518534" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.editorial.EditorialesServiceImpl" target="dgtic.core.proyecto.service.editorial.EditorialesService" relationship="REALIZATION">
+      <point x="-64.25" y="-79.5" />
+      <point x="1144.2880747126428" y="2041.0" />
+      <point x="1298.874999999999" y="2041.0" />
+      <point x="-64.25" y="79.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.UsuarioPublicController" target="dgtic.core.proyecto.service.usuario.UsuarioService" relationship="TO_ONE">
+      <point x="-0.4347680013070203" y="-73.44512047762646" />
+      <point x="4482.76141387834" y="2148.8645148854093" />
+      <point x="5481.260954004705" y="2148.8645148854093" />
+      <point x="5481.260954004705" y="1951.0" />
+      <point x="5473.374128761049" y="1951.0" />
+      <point x="5473.374128761049" y="1901.0" />
+      <point x="5467.79624395512" y="1901.0" />
+      <point x="1.5081692424773792" y="103.1010768733986" />
+    </edge>
+    <edge source="dgtic.core.proyecto.util.RenderPagina" target="dgtic.core.proyecto.util.PageItem" relationship="CREATE">
+      <point x="-49.5" y="-115.5" />
+      <point x="4282.002155172413" y="1282.0" />
+      <point x="4311.502155172413" y="1282.0" />
+      <point x="-34.75" y="43.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.ListaLibrosController" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="-215.47681560858746" y="-172.7328396822022" />
+      <point x="5812.311259104055" y="2051.0" />
+      <point x="5235.77878927697" y="2051.0" />
+      <point x="5235.77878927697" y="1921.0" />
+      <point x="4426.837209041753" y="1921.0" />
+      <point x="95.3350538693403" y="115.12404019937503" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Administrador" target="dgtic.core.proyecto.entity.Rol" relationship="TO_ONE">
+      <point x="0.0" y="-248.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.usuario.UsuarioController" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="-116.25" y="-91.5" />
+      <point x="5119.52878927697" y="2071.0" />
+      <point x="4950.249999999999" y="2071.0" />
+      <point x="4950.249999999999" y="1931.0" />
+      <point x="4407.964768459146" y="1931.0" />
+      <point x="76.46261328673336" y="115.12404019937503" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Libro.LibroController" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="-114.5" y="-127.5" />
+      <point x="2580.2902298850568" y="2071.0" />
+      <point x="2712.002155172413" y="2071.0" />
+      <point x="2712.002155172413" y="1961.0" />
+      <point x="4371.9754631620835" y="1961.0" />
+      <point x="40.4733079896705" y="114.2462522653002" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.administrador.AdministradorServiceImpl" target="dgtic.core.proyecto.service.administrador.AdministradorService" relationship="REALIZATION">
+      <point x="-73.5" y="-79.5" />
+      <point x="68.91307471264281" y="2071.0" />
+      <point x="125.49999999999909" y="2071.0" />
+      <point x="-73.5" y="79.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.administrador.AdministradorController" target="dgtic.core.proyecto.entity.ContraseniaNueva" relationship="CREATE">
+      <point x="115.75000000000023" y="-115.5" />
+      <point x="909.663074712643" y="2108.7174502922735" />
+      <point x="1697.4152298850568" y="2108.7174502922735" />
+      <point x="1697.4152298850568" y="1871.0" />
+      <point x="2890.2932457014344" y="1871.0" />
+      <point x="-61.45675429856465" y="39.90352696718196" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.idioma.IdiomaServiceImpl" target="dgtic.core.proyecto.service.idioma.IdiomaService" relationship="REALIZATION">
+      <point x="47.75" y="-31.5" />
+      <point x="3087.0402298850568" y="1901.0" />
+      <point x="3680.002155172413" y="1901.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.compras.ComprasController" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="-87.67490416450528" y="-41.08616608354032" />
+      <point x="5565.107661029381" y="1878.854445773631" />
+      <point x="4269.274274875341" y="1878.854445773631" />
+      <point x="-62.22788029707226" y="112.9295703641883" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.editorial.EditorialesServiceImpl" target="dgtic.core.proyecto.repository.EditorialRepository" relationship="TO_ONE">
+      <point x="-12.654176787060806" y="-73.45569590817604" />
+      <point x="1195.883897925582" y="2051.0" />
+      <point x="1195.7166362589028" y="2051.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.editoriales.EditorialesController" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="110.0" y="-67.5" />
+      <point x="1687.0380747126428" y="2051.0" />
+      <point x="2300.25541462718" y="2051.0" />
+      <point x="2300.25541462718" y="1975.6449249068828" />
+      <point x="4389.09232787654" y="1975.6449249068828" />
+      <point x="57.590172704127326" y="115.56293416641233" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.CompraLibro" target="dgtic.core.proyecto.entity.Compra" relationship="TO_ONE">
+      <point x="-52.25" y="-128.0" />
+      <point x="9250.653017241379" y="1282.0" />
+      <point x="8919.915229885057" y="1282.0" />
+      <point x="8919.915229885057" y="1262.0" />
+      <point x="5475.262212643677" y="1262.0" />
+      <point x="68.75" y="200.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Pais" target="dgtic.core.proyecto.entity.Estado" relationship="TO_MANY">
+      <point x="0.0" y="-104.0" />
+      <point x="5228.762212643677" y="236.85352833423462" />
+      <point x="5450.262212643677" y="236.85352833423462" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.UsuarioPublicController" target="dgtic.core.proyecto.service.compra.CompraService" relationship="TO_ONE">
+      <point x="116.25" y="-67.5" />
+      <point x="4599.446181879647" y="2103.517853056744" />
+      <point x="5523.693085583512" y="2103.517853056744" />
+      <point x="5523.693085583512" y="1961.0" />
+      <point x="6256.153017241379" y="1961.0" />
+      <point x="6256.153017241379" y="1841.0" />
+      <point x="6673.097515567396" y="1841.0" />
+      <point x="-200.69055914524688" y="29.20252512460911" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.busqueda.Busqueda" target="dgtic.core.proyecto.service.Libro.LibroService" relationship="TO_ONE">
+      <point x="0.0" y="-43.5" />
+      <point x="6552.925994446499" y="1401.819455610202" />
+      <point x="6270.7552345367185" y="1401.819455610202" />
+      <point x="0.9671598240756794" y="-129.6757027117178" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.rol.RolServiceImpl" target="dgtic.core.proyecto.service.rol.RolService" relationship="REALIZATION">
+      <point x="-41.0" y="-31.5" />
+      <point x="403.04022988505676" y="2061.0" />
+      <point x="-48.0" y="2061.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Libro" target="dgtic.core.proyecto.entity.Editorial" relationship="TO_ONE">
+      <point x="39.02262082466132" y="-224.7918315917002" />
+      <point x="3253.687850709718" y="665.2140653698302" />
+      <point x="1678.499999999999" y="665.2140653698302" />
+      <point x="1678.499999999999" y="667.0" />
+      <point x="1637.124999999999" y="667.0" />
+      <point x="52.25" y="92.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.util.RenderPagina" target="dgtic.core.proyecto.util.PageItem" relationship="TO_MANY">
+      <point x="49.5" y="-115.5" />
+      <point x="34.75" y="43.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Compra" target="dgtic.core.proyecto.entity.Pais" relationship="TO_ONE">
+      <point x="-59.131127660508355" y="-204.15411146085148" />
+      <point x="5347.381084983169" y="740.0" />
+      <point x="5228.762212643677" y="740.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.busqueda.Busqueda" target="dgtic.core.proyecto.repository.EstadoRepository" relationship="TO_ONE">
+      <point x="-140.0023627627179" y="-8.991558529333815" />
+      <point x="6412.923631683781" y="1342.940284525913" />
+      <point x="6020.789947897076" y="1342.940284525913" />
+      <point x="87.50187318443295" y="-21.920532483600482" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.CompraLibro" target="dgtic.core.proyecto.entity.CompraLibroId" relationship="CREATE">
+      <point x="93.26035296432383" y="-129.3629799308767" />
+      <point x="9396.163370205702" y="1263.1240401993748" />
+      <point x="9399.481307912152" y="1263.1240401993748" />
+      <point x="9399.481307912152" y="1186.8787020007994" />
+      <point x="9399.235627974964" y="1186.8787020007994" />
+      <point x="96.33261073358517" y="91.76809870453553" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.usuario.UsuarioController" target="dgtic.core.proyecto.service.usuario.UsuarioService" relationship="TO_ONE">
+      <point x="116.25" y="-91.5" />
+      <point x="5352.02878927697" y="1994.1422817650412" />
+      <point x="5364.930470430739" y="1994.1422817650412" />
+      <point x="-101.35760428190406" y="101.7295332264066" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.ListaLibrosController" target="dgtic.core.proyecto.entity.Compra" relationship="CREATE">
+      <point x="-73.38489378024224" y="-178.21901427016928" />
+      <point x="5954.403180932401" y="2041.1248857416595" />
+      <point x="5259.762212643677" y="2041.1248857416595" />
+      <point x="5259.762212643677" y="1901.0" />
+      <point x="5303.624999999999" y="1901.0" />
+      <point x="5303.624999999999" y="1282.0" />
+      <point x="5337.762212643677" y="1282.0" />
+      <point x="-68.75" y="200.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.InicioController" target="dgtic.core.proyecto.repository.RolRepository" relationship="TO_ONE">
+      <point x="-74.25" y="-91.5" />
+      <point x="2150.9152298850568" y="2061.0" />
+      <point x="762.1941376906989" y="2061.0" />
+      <point x="-10.78505635513659" y="15.445473151913347" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.ListaLibrosController" target="dgtic.core.proyecto.repository.PaisRepostory" relationship="TO_ONE">
+      <point x="229.6557515353188" y="-41.82129093255435" />
+      <point x="6257.443826247962" y="2142.801806884003" />
+      <point x="6542.716150866151" y="2142.801806884003" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.editoriales.EditorialesController" target="dgtic.core.proyecto.entity.Editorial" relationship="CREATE">
+      <point x="-16.043246159538285" y="-64.97423140802402" />
+      <point x="1560.9948285531045" y="2017.397180648702" />
+      <point x="1502.124999999999" y="2017.397180648702" />
+      <point x="1502.124999999999" y="770.0" />
+      <point x="1532.624999999999" y="770.0" />
+      <point x="-52.25" y="92.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.compra.CompraServiceImpl" target="dgtic.core.proyecto.repository.CompraLibroRepository" relationship="TO_ONE">
+      <point x="-195.1234279779328" y="-74.29277246398988" />
+      <point x="8438.37872719448" y="2092.2589265283723" />
+      <point x="8133.127155172413" y="2092.2589265283723" />
+      <point x="8133.127155172413" y="1821.0" />
+      <point x="7604.788074712643" y="1821.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.editoriales.EditorialesController" target="dgtic.core.proyecto.service.editorial.EditorialesService" relationship="TO_ONE">
+      <point x="-110.0" y="-67.5" />
+      <point x="1467.0380747126428" y="2041.0" />
+      <point x="1382.1780702095139" y="2041.0" />
+      <point x="19.05307020951477" y="77.16493726654221" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.ListaLibrosController" target="dgtic.core.proyecto.service.Libro.LibroService" relationship="TO_ONE">
+      <point x="44.437767277372586" y="-156.3055544848262" />
+      <point x="6072.225841990015" y="1938.1617064451532" />
+      <point x="6072.877325222337" y="1938.1617064451532" />
+      <point x="6072.877325222337" y="1804.5189796179397" />
+      <point x="6089.371801101155" y="1804.5189796179397" />
+      <point x="-180.41627361148767" y="86.44691364158393" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.compra.CompraServiceImpl" target="dgtic.core.proyecto.service.compra.CompraService" relationship="REALIZATION">
+      <point x="-29.806772733038088" y="-81.28270335221168" />
+      <point x="8603.695382439375" y="1848.41217520595" />
+      <point x="7060.421441477866" y="1848.41217520595" />
+      <point x="186.6333667652234" y="80.22394879270223" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.compras.ComprasUserController" target="dgtic.core.proyecto.service.compra.CompraService" relationship="TO_ONE">
+      <point x="0.0" y="-31.5" />
+      <point x="7927.083365166712" y="1976.7063742693172" />
+      <point x="7180.415117027721" y="1976.7063742693172" />
+      <point x="7180.415117027721" y="1891.0" />
+      <point x="6256.153017241379" y="1891.0" />
+      <point x="6256.153017241379" y="1841.0" />
+      <point x="6772.538074712643" y="1841.0" />
+      <point x="-101.25" y="79.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Libro.LibroController" target="dgtic.core.proyecto.repository.EditorialRepository" relationship="TO_ONE">
+      <point x="65.83196448757144" y="-130.16307708867225" />
+      <point x="2760.622194372628" y="2071.0" />
+      <point x="2791.5446351214596" y="2071.0" />
+      <point x="2791.5446351214596" y="1806.5987917065868" />
+      <point x="1248.2210414953056" y="1806.5987917065868" />
+      <point x="1248.2210414953056" y="1857.7423517272623" />
+      <point x="1195.7166362589028" y="1857.7423517272623" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.compras.ComprasUserController" target="dgtic.core.proyecto.repository.CompraLibroRepository" relationship="TO_ONE">
+      <point x="-108.1072974255676" y="1.0079016449376468" />
+      <point x="7818.976067741144" y="1468.8066174926848" />
+      <point x="7733.025900182241" y="1468.8066174926848" />
+      <point x="128.23782546959774" y="-25.22670537068234" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Autor.AutorCotroller" target="dgtic.core.proyecto.service.autores.AutoresService" relationship="TO_ONE">
+      <point x="117.0" y="-67.5" />
+      <point x="3627.1652298850568" y="1991.0" />
+      <point x="4571.499999999999" y="1991.0" />
+      <point x="-64.25" y="79.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.usuario.UsuarioServiceImpl" target="dgtic.core.proyecto.repository.UsuarioRepository" relationship="TO_ONE">
+      <point x="65.25" y="-103.5" />
+      <point x="7202.752155172413" y="2061.0" />
+      <point x="7960.127155172413" y="2061.0" />
+      <point x="7960.127155172413" y="1772.7216636258904" />
+      <point x="8528.375706838578" y="1772.7216636258904" />
+      <point x="-89.03736787406524" y="30.70027422001749" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.administrador.AdministradorController" target="dgtic.core.proyecto.service.administrador.AdministradorService" relationship="TO_ONE">
+      <point x="-231.5" y="49.0" />
+      <point x="309.5" y="2316.5" />
+      <point x="110.50000000000091" y="79.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Libro.LibroController" target="dgtic.core.proyecto.service.Libro.LibroService" relationship="TO_ONE">
+      <point x="178.98431536439057" y="-125.01978841245318" />
+      <point x="2873.7745452494473" y="2011.0" />
+      <point x="6626.528017241379" y="2011.0" />
+      <point x="6626.528017241379" y="1868.9946526485319" />
+      <point x="6179.288074712643" y="1868.9946526485319" />
+      <point x="-90.5" y="127.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Compra" target="dgtic.core.proyecto.entity.Estado" relationship="TO_ONE">
+      <point x="69.69380886124327" y="-200.51446907668185" />
+      <point x="5476.2060215049205" y="778.0" />
+      <point x="5671.762212643677" y="778.0" />
+      <point x="5671.762212643677" y="220.0" />
+      <point x="5541.0499056566405" y="220.0" />
+      <point x="90.78769301296325" y="107.06592019416578" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.Libro.LibroServiceImpl" target="dgtic.core.proyecto.repository.LibrosRepository" relationship="TO_ONE">
+      <point x="90.5" y="-127.5" />
+      <point x="7559.502155172413" y="1871.0" />
+      <point x="7255.288074712643" y="1871.0" />
+      <point x="0.0" y="55.5" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.CompraLibro" target="dgtic.core.proyecto.entity.CompraLibroId" relationship="TO_ONE">
+      <point x="7.370700159081025" y="-130.00156731540528" />
+      <point x="9310.27371740046" y="1343.9992163422974" />
+      <point x="9322.562748477503" y="1343.9992163422974" />
+      <point x="9322.562748477503" y="1268.194469835187" />
+      <point x="9297.175777747338" y="1268.194469835187" />
+      <point x="9297.175777747338" y="1187.0" />
+      <point x="9250.653017241379" y="1187.0" />
+      <point x="-52.25" y="92.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Autor.AutorCotroller" target="dgtic.core.proyecto.entity.Autores" relationship="CREATE">
+      <point x="-117.0" y="-67.5" />
+      <point x="3393.1652298850568" y="2071.0" />
+      <point x="3683.252155172413" y="2071.0" />
+      <point x="3683.252155172413" y="1931.0" />
+      <point x="4108.002155172413" y="1931.0" />
+      <point x="0.0" y="128.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Autor.AutorCotroller" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="-117.0" y="-67.5" />
+      <point x="3393.1652298850568" y="2071.0" />
+      <point x="3683.252155172413" y="2071.0" />
+      <point x="3683.252155172413" y="1971.0" />
+      <point x="4300.435746534993" y="1971.0" />
+      <point x="-31.066408637419954" y="112.9295703641883" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.CompraLibro" target="dgtic.core.proyecto.entity.Libro" relationship="TO_ONE">
+      <point x="-87.26581148335026" y="-134.11619825638059" />
+      <point x="9215.637205758028" y="1339.8637806142056" />
+      <point x="8812.895324962667" y="1339.8637806142056" />
+      <point x="8812.895324962667" y="1291.8873828813803" />
+      <point x="4108.002155172413" y="1291.8873828813803" />
+      <point x="4108.002155172413" y="1262.0" />
+      <point x="3181.544189145157" y="1262.0" />
+      <point x="-33.121040739899854" y="224.04643507864535" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.administrador.AdministradorServiceImpl" target="dgtic.core.proyecto.repository.AdministradorRepository" relationship="TO_ONE">
+      <point x="73.5" y="-79.5" />
+      <point x="215.9130747126428" y="2071.0" />
+      <point x="438.2780172413786" y="2071.0" />
+      <point x="438.2780172413786" y="2021.0" />
+      <point x="457.0256762350344" y="2021.0" />
+      <point x="-77.97432376496471" y="31.2911084527384" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.UsuarioPublicController" target="dgtic.core.proyecto.util.RenderPagina" relationship="CREATE">
+      <point x="-116.25" y="-67.5" />
+      <point x="4366.946181879647" y="2085.733379020419" />
+      <point x="4236.796121314576" y="2085.733379020419" />
+      <point x="-94.7060338578367" y="106.34616085862785" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Libro.LibroController" target="dgtic.core.proyecto.entity.Libro" relationship="CREATE">
+      <point x="-114.5" y="-127.5" />
+      <point x="2580.2902298850568" y="2071.0" />
+      <point x="2712.002155172413" y="2071.0" />
+      <point x="2712.002155172413" y="1831.0" />
+      <point x="2279.624999999999" y="1831.0" />
+      <point x="2279.624999999999" y="1282.0" />
+      <point x="3131.0713829358606" y="1282.0" />
+      <point x="-83.59384694919618" y="222.7297531775332" />
+    </edge>
+    <edge source="dgtic.core.proyecto.entity.Libro" target="dgtic.core.proyecto.entity.Idioma" relationship="TO_ONE">
+      <point x="-67.4091661818984" y="-226.43768396809037" />
+      <point x="3147.2560637031584" y="770.0" />
+      <point x="1813.874999999999" y="770.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.usuario.UsuarioController" target="dgtic.core.proyecto.entity.Usuario" relationship="CREATE">
+      <point x="-116.25" y="-91.5" />
+      <point x="5119.52878927697" y="2071.0" />
+      <point x="4950.249999999999" y="2071.0" />
+      <point x="4950.249999999999" y="772.8582216905477" />
+      <point x="4950.249999999998" y="772.8582216905477" />
+      <point x="4950.249999999998" y="767.0" />
+      <point x="5392.329552928193" y="767.0" />
+      <point x="-114.93265971548408" y="232.51149571115423" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.administrador.AdministradorController" target="dgtic.core.proyecto.repository.RolRepository" relationship="TO_ONE">
+      <point x="49.64861535047646" y="-103.1276557794913" />
+      <point x="843.5616900631193" y="2051.0" />
+      <point x="845.3439712895738" y="2051.0" />
+      <point x="72.36477724373833" y="9.843621478469231" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.compra.CompraServiceImpl" target="dgtic.core.proyecto.service.Libro.LibroService" relationship="TO_ONE">
+      <point x="-80.47095123721738" y="-76.43580941241453" />
+      <point x="8553.031203935196" y="1914.846803580896" />
+      <point x="6715.678354295843" y="1914.846803580896" />
+      <point x="6715.678354295843" y="1754.0044332847435" />
+      <point x="6252.242609181425" y="1754.0044332847435" />
+      <point x="-17.545465531217815" y="125.87879349259674" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.admin.Libro.LibroController" target="dgtic.core.proyecto.repository.IdiomaRepository" relationship="TO_ONE">
+      <point x="114.5" y="-127.5" />
+      <point x="2809.2902298850568" y="1881.0" />
+      <point x="3391.7124210323095" y="1881.0" />
+      <point x="-85.78973414010352" y="8.937185751357902" />
+    </edge>
+    <edge source="dgtic.core.proyecto.service.autores.AutoresServiceImpl" target="dgtic.core.proyecto.repository.AutoresRepository" relationship="TO_ONE">
+      <point x="-64.25" y="-79.5" />
+      <point x="3828.4152298850568" y="1921.0" />
+      <point x="3887.002155172413" y="1921.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="dgtic.core.proyecto.controller.usuario.ListaLibrosController" target="dgtic.core.proyecto.repository.EstadoRepository" relationship="TO_ONE">
+      <point x="-28.518667548220037" y="-168.30888304283553" />
+      <point x="5999.269407164423" y="1932.5152225864172" />
+      <point x="6001.9659716979" y="1932.5152225864172" />
+      <point x="6001.9659716979" y="1824.1895130688445" />
+      <point x="5833.961443708814" y="1824.1895130688445" />
+      <point x="-99.32663100382888" y="19.538388488653936" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7466040196722674" showDependencies="true" x="8750.181880063825" y="1553.0412484197414" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

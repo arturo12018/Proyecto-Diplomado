@@ -77,7 +77,7 @@ public class UsuarioController {
         }
         try{
             usuarioService.guardar(usuario);
-            flash.addFlashAttribute("success","Administrador se almaceno con éxito");
+            flash.addFlashAttribute("success","Usuario se almaceno con éxito");
             return "redirect:/admin/usuario/lista-usuarios";
         }catch (Exception e){
             ObjectError er=new ObjectError("Duplicados","Correo Duplicado");
@@ -106,7 +106,7 @@ public class UsuarioController {
         }
         try{
             usuarioService.modificar(usuario);
-            flash.addFlashAttribute("success","Administrador se almaceno con éxito");
+            flash.addFlashAttribute("success","Usuario se almaceno con éxito");
             return "redirect:/admin/usuario/lista-usuarios";
         }catch (Exception e){
             ObjectError er=new ObjectError("Duplicados","Correo Duplicaodo");
