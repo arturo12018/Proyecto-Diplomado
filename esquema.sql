@@ -331,14 +331,14 @@ VALUES
 -- Insertar compras
 INSERT INTO compras (ID_usuario, Fecha, Total, Tarjeta_credito_numero, Tarjeta_credito_cvv, Tarjeta_credito_mes_expiracion, Tarjeta_credito_anio_expiracion, Direccion, ID_estado, ID_pais)
 VALUES
-    (1,  '2023-06-01 10:30:00', 50.99, '1234567890123456', '123', 12, 2025, 'Calle Principal 123', 1, 1),
-    (2,  '2023-06-02 15:45:00', 79.99, '9876543210987654', '456', 11, 2024, 'Avenida Central 456', 4, 2),
-    (3,  '2023-06-03 09:15:00', 35.50, '5678901234567890', '789', 9, 2023, 'Calle Secundaria 789', 6, 3),
-    (4,  '2023-06-03 09:15:01', 35.50, '5678901234567890', '789', 9, 2023, 'Calle Secundaria 789', 1, 1);
+    (1,  '2023-06-01 10:30:00', 44.98, '1234567890123456', '123', 12, 2025, 'Calle Principal 123', 1, 1),
+    (2,  '2023-06-02 15:45:00', 32.98, '9876543210987654', '456', 11, 2024, 'Avenida Central 456', 4, 2),
+    (3,  '2023-06-03 09:15:00', 16.99, '5678901234567890', '789', 9, 2023, 'Calle Secundaria 789', 6, 3),
+    (4,  '2023-06-03 09:15:01', 22.99, '5678901234567890', '789', 9, 2023, 'Calle Secundaria 789', 1, 1);
 
 -- Insertar compras sin fecha
-INSERT INTO compras (ID_usuario, Total, Tarjeta_credito_numero, Tarjeta_credito_cvv, Tarjeta_credito_mes_expiracion, Tarjeta_credito_anio_expiracion, Direccion, ID_estado, ID_pais)
-VALUES  (4, 40.50, '5678901234567890', '789', 9, 2023, 'Calle Secundaria 789', 1, 1);
+-- INSERT INTO compras (ID_usuario, Total, Tarjeta_credito_numero, Tarjeta_credito_cvv, Tarjeta_credito_mes_expiracion, Tarjeta_credito_anio_expiracion, Direccion, ID_estado, ID_pais)
+-- VALUES  (4, 40.50, '5678901234567890', '789', 9, 2023, 'Calle Secundaria 789', 1, 1);
 
 
 -- Insertar libros por compra
